@@ -36,6 +36,7 @@ namespace Model
         public string ThoiGianDoiMKTamThoi { get; set; }
         public int? TinhTrang { get; set; }
         public string TenKhachHang { get; set; }
+        public string MaKhachHang { get; set; }
 
     }
 }

@@ -23,5 +23,13 @@ namespace BLL
         {
             return pq.capNhatQuyen(updates);
         }
+        public TaiKhoanNV KiemTraDangNhap(string tK)
+        {
+            return pq.KiemTraDangNhap(tK);
+        }
+        public bool SuaTaiKhoan(TaiKhoanNV taiKhoan)
+        {
+            return pq.SuaTaiKhoan(taiKhoan);
+        }
     }
 }

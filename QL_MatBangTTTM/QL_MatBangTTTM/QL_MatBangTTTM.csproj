@@ -65,11 +65,23 @@
     <Compile Include="FrmDangKy.Designer.cs">
       <DependentUpon>FrmDangKy.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDangNhap.Designer.cs">
+      <DependentUpon>FrmDangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDoiMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmDoiMatKhau.Designer.cs">
       <DependentUpon>FrmDoiMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDSMatBangChuaThue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDSMatBangChuaThue.Designer.cs">
+      <DependentUpon>FrmDSMatBangChuaThue.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmHoaDonDichVu.cs">
       <SubType>Form</SubType>
@@ -125,6 +137,18 @@
     <Compile Include="FrmTaiKhoanNV.Designer.cs">
       <DependentUpon>FrmTaiKhoanNV.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmTaoHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTaoHoaDon.Designer.cs">
+      <DependentUpon>FrmTaoHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTaoLichHen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTaoLichHen.Designer.cs">
+      <DependentUpon>FrmTaoLichHen.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmThueMatBang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +181,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource\QL_MatBang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QL_MatBang.resx</DependentUpon>
+    </Compile>
     <Compile Include="Setting.cs" />
     <Compile Include="WaitLoadFrm.cs">
       <SubType>Form</SubType>
@@ -167,8 +196,14 @@
     <EmbeddedResource Include="FrmDangKy.resx">
       <DependentUpon>FrmDangKy.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDangNhap.resx">
+      <DependentUpon>FrmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDoiMatKhau.resx">
       <DependentUpon>FrmDoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDSMatBangChuaThue.resx">
+      <DependentUpon>FrmDSMatBangChuaThue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHoaDonDichVu.resx">
       <DependentUpon>FrmHoaDonDichVu.cs</DependentUpon>
@@ -200,6 +235,12 @@
     <EmbeddedResource Include="FrmTaiKhoanNV.resx">
       <DependentUpon>FrmTaiKhoanNV.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmTaoHoaDon.resx">
+      <DependentUpon>FrmTaoHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTaoLichHen.resx">
+      <DependentUpon>FrmTaoLichHen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmThueMatBang.resx">
       <DependentUpon>FrmThueMatBang.cs</DependentUpon>
     </EmbeddedResource>
@@ -222,6 +263,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Resource\QL_MatBang.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>QL_MatBang.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="WaitLoadFrm.resx">
       <DependentUpon>WaitLoadFrm.cs</DependentUpon>
     </EmbeddedResource>

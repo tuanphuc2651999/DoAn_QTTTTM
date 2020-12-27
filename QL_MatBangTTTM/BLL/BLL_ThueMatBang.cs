@@ -1,0 +1,117 @@
+﻿using DAL;
+using Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BLL
+{
+   public class BLL_ThueMatBang
+    {
+        DAL_DKThueMatBang dkThue = new DAL_DKThueMatBang();
+        public List<DangKyThueModel> LayDSDKThueMatBang()
+        {
+            return dkThue.LayDSDKThueMatBang();
+        }
+        public List<MatBangModel> LayDSMatBang()
+        {
+            return dkThue.DSMatBang();
+        }
+        public bool ThemDangKyMatBang(DangKyThue input)
+        {
+            return dkThue.ThemDangKyMatBang(input);
+        }
+        public string LayMaDKTuSinh(int dem)
+        {
+            return dkThue.LayMaDKTuSinh(dem);
+        }
+        public HoaDonTienCoc HoaDon(string ma)
+        {
+            return dkThue.HoaDon(ma);
+        }
+        public LichHen LayThongTinLichHen(string ma)
+        {
+            return dkThue.LayThongTinLichHen(ma);
+        }
+        public bool UpdateTrangThaiMatBang(string maMB, int TrangThai)
+        {
+            return dkThue.UpdateTrangThaiMatBang(maMB, TrangThai);
+
+        }
+
+        public bool ThemHoaDon(HoaDonTienCoc hd)
+        {
+            return dkThue.ThemHoaDon(hd);
+        }
+        public string LayMaHoaDonTuSinh()
+        {
+            return dkThue.LayMaHoaDonTuSinh();
+        }
+        public double TinhTienCoc(string maMB)
+        {
+            return dkThue.TinhTienCoc(maMB);
+        }
+        public bool XoaHoaDon(string maHD)
+        {
+            return dkThue.XoaHoaDon(maHD);
+        }
+        public string LayMaLichHenTuSinh()
+        {
+            return dkThue.LayMaLichHenTuSinh();
+        }
+        public bool ThemLichHen(LichHen lh)
+        {
+            return dkThue.ThemLichHen(lh);
+        }
+        public bool XoaLichHen(string lh)
+        {
+            return dkThue.XoaLichHen(lh);
+        }
+        public bool KiemTraLichHen(LichHen lh)
+        {
+            return dkThue.KiemTraLichHen(lh);
+        }
+        public bool SuaDKThueMatBang(DangKyThue input)
+        {
+            return dkThue.SuaDKThueMatBang(input);
+        }
+        public MatBang LayThongTinMB(string mb)
+        {
+            return dkThue.LayThongTinMB(mb);
+        }
+        public List<ThueMatBang> LayDSThueMatBang()
+        {
+            return dkThue.LayDSThueMatBang();
+        }
+        public bool ThemThueMatBang(ThueMatBang thue)
+        {
+            return dkThue.ThemThueMatBang(thue);
+        }
+        public bool SuaThueMatBang(ThueMatBang thue)
+        {
+            return dkThue.SuaThueMatBang(thue);
+        }
+        public string LayMaThueTuSinh()
+        {
+            return dkThue.LayMaThueTuSinh();
+        }
+        public List<DangKyThueModel> LayDSMatBangChuaThue()
+        {
+            return dkThue.LayDSMatBangChuaThue();
+        }
+        public DangKyThue LayThongTinDKThue(string ma)
+        {
+            return dkThue.LayThongTinDKThue(ma);
+        }
+        public List<GiaThue> DSGia()
+        {
+            return dkThue.DSGia();
+        }
+        public double PhiDichVu(int dienTich)
+        {
+            return dkThue.PhiDichVu(dienTich);
+        }
+    }
+}

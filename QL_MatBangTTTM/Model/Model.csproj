@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DangKyThueModel.cs" />
     <Compile Include="KhachHangModel.cs" />
     <Compile Include="NhanVienModel.cs" />
     <Compile Include="PhanQuyen.cs" />

@@ -24,7 +24,7 @@ namespace QL_MatBangTTTM
         }
         private void Databingding(BindingList<TaiKhoanKHModel> kh)
         {
-            cboKhachHang.DataBindings.Add("text", kh, "TenKhachHang");
+            cboKhachHang.DataBindings.Add("text", kh, "MaKhachHang");
             txtTK.DataBindings.Add("text", kh, "TaiKhoan");
             txtMatKhau.DataBindings.Add("text", kh, "MatKhau");
             txtEmail.DataBindings.Add("text", kh, "Email");

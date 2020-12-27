@@ -22,4 +22,12 @@ namespace Model
 
         public bool? Quyen { get; set; }
     }
+    public class TaiKhoanModel {
+        public string TaiKhoan { get; set; }
+
+        public string MatKhau { get; set; }
+
+        public string Email { get; set; }
+        public int? TrangThai { get; set; }
+    }
 }

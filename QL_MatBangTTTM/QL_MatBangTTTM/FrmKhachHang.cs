@@ -21,8 +21,7 @@ namespace QL_MatBangTTTM
     public partial class FrmKhachHang : DevExpress.XtraEditors.XtraForm
     {
         BLL_KhachHang khachHang = new BLL_KhachHang();
-        List<KhachHangModel> listUpdateKhachHang;
-        List<KhachHangModel> listAddKhachHang;
+
         List<int> listViTriSua;
         List<int> listViTriThem;
         int dem = 0;
@@ -30,8 +29,6 @@ namespace QL_MatBangTTTM
         public FrmKhachHang()
         {
             InitializeComponent();
-            listUpdateKhachHang = new List<KhachHangModel>();
-            listAddKhachHang = new List<KhachHangModel>();
             listViTriSua = new List<int>();
             listViTriThem = new List<int>();
         }
@@ -83,7 +80,7 @@ namespace QL_MatBangTTTM
 
         private void btnLuuKH_ItemClick(object sender, ItemClickEventArgs e)
         {            
-             KhachHangModel kh = new KhachHangModel();
+            KhachHangModel kh = new KhachHangModel();
             string maKH;
             string tenKH;
             DateTime ngaySinh;

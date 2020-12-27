@@ -13,10 +13,12 @@ namespace QL_MatBangTTTM
         /// </summary>
         [STAThread]
         static void Main()
-        {
+        {          
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMain());
+            //Application.Run(new FrmThueMatBang());
+            Application.Run(new FrmTaiKhoanKhachHang());
+            //Application.Run(new FrmMain());
         }
     }
 }

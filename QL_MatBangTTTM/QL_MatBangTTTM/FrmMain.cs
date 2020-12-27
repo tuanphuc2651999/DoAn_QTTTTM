@@ -145,7 +145,7 @@ namespace QL_MatBangTTTM
 
         private void btnDoiMatKhau_ItemClick(object sender, ItemClickEventArgs e)
         {
-            LoadFormDialog(new FrmDoiMatKhau());
+            //LoadFormDialog(new FrmDoiMatKhau());
         }
     }
 }

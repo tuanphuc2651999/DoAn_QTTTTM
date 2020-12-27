@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,14 +39,16 @@
             this.txtMatKhauMoi = new DevExpress.XtraEditors.TextEdit();
             this.txtXacNhanMK = new DevExpress.XtraEditors.TextEdit();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnThoat = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTaiKhoan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhauCu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhauMoi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtXacNhanMK.Properties)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -124,6 +127,7 @@
             this.txtTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTaiKhoan.Location = new System.Drawing.Point(139, 20);
             this.txtTaiKhoan.Name = "txtTaiKhoan";
+            this.txtTaiKhoan.Properties.ReadOnly = true;
             this.txtTaiKhoan.Size = new System.Drawing.Size(230, 20);
             this.txtTaiKhoan.TabIndex = 4;
             // 
@@ -134,6 +138,7 @@
             this.txtMatKhauCu.Name = "txtMatKhauCu";
             this.txtMatKhauCu.Size = new System.Drawing.Size(230, 20);
             this.txtMatKhauCu.TabIndex = 5;
+            this.txtMatKhauCu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMatKhauCu_KeyPress);
             // 
             // txtMatKhauMoi
             // 
@@ -142,6 +147,7 @@
             this.txtMatKhauMoi.Name = "txtMatKhauMoi";
             this.txtMatKhauMoi.Size = new System.Drawing.Size(230, 20);
             this.txtMatKhauMoi.TabIndex = 6;
+            this.txtMatKhauMoi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMatKhauMoi_KeyPress);
             // 
             // txtXacNhanMK
             // 
@@ -150,6 +156,7 @@
             this.txtXacNhanMK.Name = "txtXacNhanMK";
             this.txtXacNhanMK.Size = new System.Drawing.Size(230, 20);
             this.txtXacNhanMK.TabIndex = 7;
+            this.txtXacNhanMK.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtXacNhanMK_KeyPress);
             // 
             // tableLayoutPanel2
             // 
@@ -158,8 +165,8 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.3331F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.555517F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.3331F));
-            this.tableLayoutPanel2.Controls.Add(this.button1, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button2, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnThoat, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnLuu, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(139, 142);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -168,25 +175,30 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(230, 27);
             this.tableLayoutPanel2.TabIndex = 8;
             // 
-            // button1
+            // btnThoat
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(154, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(73, 21);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Thoát";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThoat.Location = new System.Drawing.Point(154, 3);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(73, 21);
+            this.btnThoat.TabIndex = 0;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnLuu
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(66, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(70, 21);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Lưu";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLuu.Location = new System.Drawing.Point(66, 3);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(70, 21);
+            this.btnLuu.TabIndex = 1;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmDoiMatKhau
             // 
@@ -204,6 +216,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhauMoi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtXacNhanMK.Properties)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -220,7 +233,8 @@
         private DevExpress.XtraEditors.TextEdit txtMatKhauMoi;
         private DevExpress.XtraEditors.TextEdit txtXacNhanMK;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.Button btnLuu;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

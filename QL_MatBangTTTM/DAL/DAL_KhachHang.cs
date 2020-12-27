@@ -101,9 +101,16 @@ namespace DAL
                 MatKhau = tk.MatKhau,
                 Email = tk.Email,
                 TinhTrang = tk.TinhTrang,
-                TenKhachHang=kh.HoTenKH
+                TenKhachHang=kh.HoTenKH,
+                MaKhachHang=kh.MaKH
                             };
             return taiKhoans.ToList();
+        }
+
+        public KhachHang LayTTKhachHang(string ma)
+        {
+            KhachHang khachHang =db.KhachHangs.Where(t=>t.MaKH==ma).Select(t => t).FirstOrDefault();
+            return khachHang;
         }
     }
 }

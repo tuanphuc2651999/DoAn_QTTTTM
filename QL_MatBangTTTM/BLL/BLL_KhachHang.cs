@@ -29,8 +29,11 @@ namespace BLL
         }
         public List<TaiKhoanKHModel> layDSTKKH()
         {
-
             return khachHang.layDSTKKH();
+        }
+        public KhachHang LayTTKhachHang(string ma)
+        {
+            return khachHang.LayTTKhachHang(ma);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Liz.DoAn
     {
         Active = 1,
         Inactive = -1,
-        Pending = 0,
-        Locked = -2
+        Pending = -2,
+        Locked = 0
     }
 }

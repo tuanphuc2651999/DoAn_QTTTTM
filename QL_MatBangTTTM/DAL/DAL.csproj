@@ -58,6 +58,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="DAL_DKThueMatBang.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Liz.DoAn\Liz.DoAn.csproj">

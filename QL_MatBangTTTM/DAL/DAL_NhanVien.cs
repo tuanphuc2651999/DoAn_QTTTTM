@@ -48,7 +48,7 @@ namespace DAL
                             join nv in db.NhanViens on tk.TaiKhoan equals nv.MaNhanVien
                             select new TaiKhoanNVModel {
                 TaiKhoan = tk.TaiKhoan,
-                MatKhau = tk.TaiKhoan,
+                MatKhau = tk.MatKhau,
                 Email = tk.Email,
                 TinhTrang= tk.TinhTrang,
                 TenNhanVien=nv.HoTenNV

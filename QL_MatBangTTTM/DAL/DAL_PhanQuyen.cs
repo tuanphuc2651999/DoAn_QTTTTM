@@ -33,7 +33,6 @@ namespace DAL
                 PhanQuyen phanQuyen = db.PhanQuyens.FirstOrDefault(t => t.MaNhom.Equals(updates.MaNhom) && t.ManHinh.MaManHinh.Equals(updates.MaMH));
                 phanQuyen.CoQuyen = updates.Quyen;
                 db.SubmitChanges();
-
                 return true;
             }
             catch (Exception)
@@ -41,6 +40,34 @@ namespace DAL
                 return false;
                 throw;
             }
-        }       
+        }
+        public TaiKhoanNV KiemTraDangNhap(string tk)
+        {
+            try
+            {
+                var taiKhoan = db.TaiKhoanNVs.Where(t=>t.TaiKhoan.Equals(tk)).FirstOrDefault();
+                return taiKhoan;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public bool SuaTaiKhoan(TaiKhoanNV taiKhoan)
+        {
+            try
+            {
+                TaiKhoanNV tk = db.TaiKhoanNVs.FirstOrDefault(t => t.TaiKhoan.Equals(taiKhoan.TaiKhoan));
+                tk.MatKhau = taiKhoan.MatKhau;
+                tk.TinhTrang = taiKhoan.TinhTrang;
+                db.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
     }
 }
