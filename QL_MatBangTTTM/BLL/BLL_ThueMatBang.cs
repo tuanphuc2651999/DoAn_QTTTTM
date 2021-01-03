@@ -113,5 +113,21 @@ namespace BLL
         {
             return dkThue.PhiDichVu(dienTich);
         }
+        public List<LichHenModel> LayDSLichHen()
+        {
+            return dkThue.LayDSLichHen();
+        }
+        public List<DangKyThue> LayDSDangKy()
+        {
+            return dkThue.LayDSDangKy();
+        }
+        public List<DangKyThueModel> LayDSDangKyChuaCoLichHen()
+        {
+            return dkThue.LayDSDangKyChuaCoLichHen();
+        }
+        public bool SuaLichHen(LichHen lh)
+        {
+            return dkThue.SuaLichHen(lh);
+        }
     }
 }

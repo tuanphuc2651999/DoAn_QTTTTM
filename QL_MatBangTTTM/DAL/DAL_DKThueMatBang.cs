@@ -35,7 +35,8 @@ namespace DAL
                           {
                               MaMB = mb.MaMB,
                               TinhTrang = mb.TinhTrang,
-                              DienTich = mb.DienTich
+                              DienTich = mb.DienTich,
+                              ViTri= mb.ViTri
                           };
 
             return matBang.ToList();
@@ -194,9 +195,13 @@ namespace DAL
                 lichHen = lh;
                 db.LichHens.InsertOnSubmit(lichHen);
                 db.SubmitChanges();
+                DangKyThue dangKyThue = db.DangKyThues.Where(t => t.MaDK == lh.MaDK).FirstOrDefault();
+                dangKyThue.LichHen = lh.MaLichHen;
+                dangKyThue.TinhTrang = 2;
+                db.SubmitChanges();
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return false;
                 throw;
@@ -222,7 +227,7 @@ namespace DAL
         {
             try
             {
-                var lichHen = db.LichHens.Where(t => t.MaNhanVien == lh.MaNhanVien && lh.GioBatDau < t.GioKetThuc && t.GioBatDau <= lh.GioBatDau && lh.NgayHen == t.NgayHen).FirstOrDefault();
+                var lichHen = db.LichHens.Where(t => t.MaNhanVien == lh.MaNhanVien && lh.GioBatDau < t.GioKetThuc && t.GioBatDau <= lh.GioBatDau && lh.NgayHen == t.NgayHen && t.MaLichHen!=lh.MaLichHen).FirstOrDefault();
                 if(lichHen==null)
                     return true;
                 else
@@ -302,6 +307,9 @@ namespace DAL
                              where mb.TinhTrang == 1
                              select new DangKyThueModel
                              {
+                                 MaHD=mb.MaHD,
+                                 MaMB=mb.MatBang,
+                                 MaKhachHang=mb.MaKhachHang,
                                  TinhTrang = mb.TinhTrang,
                                  MaDK = mb.MaDK
                              };       
@@ -322,6 +330,63 @@ namespace DAL
         {
             GiaThue gia = db.GiaThues.Where(t=>t.MaGiaThue== "AEON_MGT0004").Select(t => t).FirstOrDefault();
             return (double)(gia.Gia*dientich);
+        }
+        public List<LichHenModel> LayDSLichHen()
+        {
+            var lichHen = from lh in db.LichHens
+                          from dk in db.DangKyThues
+                          where dk.MaDK==lh.MaDK
+            select new LichHenModel
+            {
+                MaDK = dk.MaDK,
+                GioBatDau = lh.GioBatDau.ToString().Substring(13,16),
+                GioKetThuc = lh.GioKetThuc.ToString().Substring(13, 16),
+                MaLichHen = lh.MaLichHen,
+                MaNhanVien = lh.MaNhanVien,
+                NoiDung = lh.NoiDung,
+                DiaChi = lh.DiaChi,
+                NgayHen=string.Format("{0:dd/MM/yyyy}", lh.NgayHen),
+                TinhTrang = dk.TinhTrang.ToString(),   
+                MaKH = dk.MaKhachHang
+            };
+            return lichHen.ToList();
+        }
+        public List<DangKyThue> LayDSDangKy()
+        {
+            var dsLH = db.DangKyThues.Select(t => t);
+           
+            return dsLH.ToList();
+        }
+        public List<DangKyThueModel> LayDSDangKyChuaCoLichHen()
+        {
+            var dsChuaThue = from mb in db.DangKyThues
+                             where mb.TinhTrang == 1 &&( mb.LichHen == null || mb.LichHen == "")
+                             select new DangKyThueModel
+                             {
+                                 MaHD = mb.MaHD,
+                                 MaMB = mb.MatBang,
+                                 MaKhachHang = mb.MaKhachHang,
+                                 TinhTrang = mb.TinhTrang,
+                                 MaDK = mb.MaDK
+                             };
+            return dsChuaThue.ToList();
+        }
+        public bool SuaLichHen(LichHen lh)
+        {
+            try
+            {
+                LichHen lichHen = db.LichHens.Where(t=>t.MaLichHen==lh.MaLichHen).FirstOrDefault();
+                lichHen.NgayHen = lh.NgayHen;
+                lichHen.GioBatDau = lh.GioBatDau;
+                lichHen.GioKetThuc = lh.GioKetThuc;                
+                db.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
         }
     }
 }

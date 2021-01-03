@@ -13,7 +13,7 @@ namespace QL_MatBangTTTM
 {
     public partial class FrmHoaDonTienThue : DevExpress.XtraEditors.XtraForm
     {
-        public FrmHoaDonTienThue()
+        public FrmHoaDonTienThue(string maNV)
         {
             InitializeComponent();
         }

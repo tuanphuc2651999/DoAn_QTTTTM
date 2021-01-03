@@ -29,7 +29,7 @@ namespace QL_MatBangTTTM
         List<string> listHD;
         List<string> listLH;
         int trangThai = -1;
-        public FrmDangKy()
+        public FrmDangKy(string maNV)
         {
             InitializeComponent();
             GridLocalizer.Active = new MyGridLocalizer();
@@ -126,7 +126,7 @@ namespace QL_MatBangTTTM
             {
                 if(ttMB.TinhTrang!=1&& ttMB.TinhTrang != -1 )
                 {
-                    MessageBox.Show("Mặt bằng này đã có người đặt cọc hiện tại bạn không thể đặt cọc");
+                    MessageBox.Show("Mặt bằng này đã có người thuê hiện tại bạn không thể đặt cọc");
                     return;
                 }    
             }    
@@ -134,7 +134,7 @@ namespace QL_MatBangTTTM
             {
                 if (string.IsNullOrEmpty(maMB))
                 {
-                    MessageBox.Show("Bạn chưa chọn mã hóa đơn");
+                    MessageBox.Show("Bạn chưa chọn mặt bằng");
                     return;
                 }
                 FrmTaoHoaDon taoHoaDon = new FrmTaoHoaDon(maMB, maDK);

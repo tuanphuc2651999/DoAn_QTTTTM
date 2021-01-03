@@ -16,9 +16,9 @@ namespace QL_MatBangTTTM
         {          
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FrmThueMatBang());
-            Application.Run(new FrmTaiKhoanKhachHang());
-            //Application.Run(new FrmMain());
+            Application.Run(new FrmNhanVien("AEON_NV0001"));
+           // Application.Run(new FrmDangNhap());
+           // Application.Run(new FrmThueMatBang("AEON_NV0001"));
         }
     }
 }

@@ -13,6 +13,7 @@ namespace DAL
         public List<KhachHangModel> layDSKhachHang()
         {
             var khachHang = from kh in db.KhachHangs
+                            where kh.TinhTrang==1
                     select new KhachHangModel
                     {
                         MaKH = kh.MaKH,
@@ -39,13 +40,12 @@ namespace DAL
                 kh.GioiTinh = khachHang.GioiTinh;
                 kh.DiaChi = khachHang.DiaChi;
                 kh.SDT = khachHang.SDT;
+                kh.CMND = khachHang.CMND;
                 kh.Email = khachHang.Email;
                 kh.DuongDanHinh = khachHang.DuongDanHinh;
-                if (khachHang.TinhTrangAsString.Equals("Đang làm"))
-                    kh.TinhTrang = 1;
-                else
-                    kh.TinhTrang = 0;
+                kh.TinhTrang = 1;
                 db.KhachHangs.InsertOnSubmit(kh);
+                db.SubmitChanges();
                 return true;
             }
             catch (Exception)
@@ -53,7 +53,6 @@ namespace DAL
                 return false;
                 throw;
             }
-
         }
         public bool suaKhachHang(KhachHangModel khachHang)
         {
@@ -68,7 +67,8 @@ namespace DAL
                 kh.DiaChi = khachHang.DiaChi;
                 kh.SDT = khachHang.SDT;
                 kh.Email = khachHang.Email;
-                kh.TinhTrang = khachHang.TinhTrang;
+                kh.CMND = khachHang.CMND;
+                kh.DuongDanHinh = khachHang.DuongDanHinh;
 
                 db.SubmitChanges();
                 return true;
@@ -111,6 +111,68 @@ namespace DAL
         {
             KhachHang khachHang =db.KhachHangs.Where(t=>t.MaKH==ma).Select(t => t).FirstOrDefault();
             return khachHang;
+        }
+        public bool XoaKhachHang(string maKH)
+        {
+            try
+            {
+                KhachHang nv = db.KhachHangs.Where(x => x.MaKH.Equals(maKH)).FirstOrDefault();
+                nv.TinhTrang = 0;
+                db.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+
+        }
+        public bool KiemTraEmail(string email, string manv)
+        {
+            int dem = db.KhachHangs.Where(t => t.Email.Equals(email) && !t.MaKH.Equals(manv)).Count();
+            if (dem > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool KiemTraSDT(string sdt, string manv)
+        {
+            int dem = db.KhachHangs.Where(t => t.SDT.Equals(sdt) && !t.MaKH.Equals(manv)).Count();
+            if (dem > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool KiemTraCMND(string cnmd, string manv)
+        {
+            int dem = db.KhachHangs.Where(t => t.CMND.Equals(cnmd) && !t.MaKH.Equals(manv)).Count();
+            if (dem > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool ThemTKKhachHang(TaiKhoanKH nv)
+        {
+            try
+            {
+                TaiKhoanKH taiKhoanKH = new TaiKhoanKH();
+                taiKhoanKH.TaiKhoan = nv.TaiKhoan;
+                taiKhoanKH.Email = nv.Email;
+                taiKhoanKH.MatKhau = nv.MatKhau;
+                taiKhoanKH.TinhTrang = nv.TinhTrang;
+                db.TaiKhoanKHs.InsertOnSubmit(taiKhoanKH);
+                db.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
         }
     }
 }

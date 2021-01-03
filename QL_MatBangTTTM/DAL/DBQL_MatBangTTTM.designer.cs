@@ -45,6 +45,9 @@ namespace DAL
     partial void InsertDichVu(DichVu instance);
     partial void UpdateDichVu(DichVu instance);
     partial void DeleteDichVu(DichVu instance);
+    partial void InsertGiaDV(GiaDV instance);
+    partial void UpdateGiaDV(GiaDV instance);
+    partial void DeleteGiaDV(GiaDV instance);
     partial void InsertGiaThue(GiaThue instance);
     partial void UpdateGiaThue(GiaThue instance);
     partial void DeleteGiaThue(GiaThue instance);
@@ -174,6 +177,14 @@ namespace DAL
 			get
 			{
 				return this.GetTable<DichVu>();
+			}
+		}
+		
+		public System.Data.Linq.Table<GiaDV> GiaDVs
+		{
+			get
+			{
+				return this.GetTable<GiaDV>();
 			}
 		}
 		
@@ -1231,7 +1242,7 @@ namespace DAL
 		
 		private EntitySet<CT_DichVu> _CT_DichVus;
 		
-		private EntityRef<GiaThue> _GiaThue;
+		private EntityRef<GiaDV> _GiaDV;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1250,7 +1261,7 @@ namespace DAL
 		public DichVu()
 		{
 			this._CT_DichVus = new EntitySet<CT_DichVu>(new Action<CT_DichVu>(this.attach_CT_DichVus), new Action<CT_DichVu>(this.detach_CT_DichVus));
-			this._GiaThue = default(EntityRef<GiaThue>);
+			this._GiaDV = default(EntityRef<GiaDV>);
 			OnCreated();
 		}
 		
@@ -1305,7 +1316,7 @@ namespace DAL
 			{
 				if ((this._Gia != value))
 				{
-					if (this._GiaThue.HasLoadedOrAssignedValue)
+					if (this._GiaDV.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -1351,36 +1362,36 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GiaThue_DichVu", Storage="_GiaThue", ThisKey="Gia", OtherKey="MaGiaThue", IsForeignKey=true)]
-		public GiaThue GiaThue
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GiaDV_DichVu", Storage="_GiaDV", ThisKey="Gia", OtherKey="GiaDV1", IsForeignKey=true)]
+		public GiaDV GiaDV
 		{
 			get
 			{
-				return this._GiaThue.Entity;
+				return this._GiaDV.Entity;
 			}
 			set
 			{
-				GiaThue previousValue = this._GiaThue.Entity;
+				GiaDV previousValue = this._GiaDV.Entity;
 				if (((previousValue != value) 
-							|| (this._GiaThue.HasLoadedOrAssignedValue == false)))
+							|| (this._GiaDV.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._GiaThue.Entity = null;
+						this._GiaDV.Entity = null;
 						previousValue.DichVus.Remove(this);
 					}
-					this._GiaThue.Entity = value;
+					this._GiaDV.Entity = value;
 					if ((value != null))
 					{
 						value.DichVus.Add(this);
-						this._Gia = value.MaGiaThue;
+						this._Gia = value.GiaDV1;
 					}
 					else
 					{
 						this._Gia = default(string);
 					}
-					this.SendPropertyChanged("GiaThue");
+					this.SendPropertyChanged("GiaDV");
 				}
 			}
 		}
@@ -1418,6 +1429,168 @@ namespace DAL
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GiaDV")]
+	public partial class GiaDV : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _GiaDV1;
+		
+		private string _TenDichVu;
+		
+		private System.Nullable<int> _Gia;
+		
+		private System.DateTime _NgayTao;
+		
+		private EntitySet<DichVu> _DichVus;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnGiaDV1Changing(string value);
+    partial void OnGiaDV1Changed();
+    partial void OnTenDichVuChanging(string value);
+    partial void OnTenDichVuChanged();
+    partial void OnGiaChanging(System.Nullable<int> value);
+    partial void OnGiaChanged();
+    partial void OnNgayTaoChanging(System.DateTime value);
+    partial void OnNgayTaoChanged();
+    #endregion
+		
+		public GiaDV()
+		{
+			this._DichVus = new EntitySet<DichVu>(new Action<DichVu>(this.attach_DichVus), new Action<DichVu>(this.detach_DichVus));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="GiaDV", Storage="_GiaDV1", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string GiaDV1
+		{
+			get
+			{
+				return this._GiaDV1;
+			}
+			set
+			{
+				if ((this._GiaDV1 != value))
+				{
+					this.OnGiaDV1Changing(value);
+					this.SendPropertyChanging();
+					this._GiaDV1 = value;
+					this.SendPropertyChanged("GiaDV1");
+					this.OnGiaDV1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenDichVu", DbType="NVarChar(100)")]
+		public string TenDichVu
+		{
+			get
+			{
+				return this._TenDichVu;
+			}
+			set
+			{
+				if ((this._TenDichVu != value))
+				{
+					this.OnTenDichVuChanging(value);
+					this.SendPropertyChanging();
+					this._TenDichVu = value;
+					this.SendPropertyChanged("TenDichVu");
+					this.OnTenDichVuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gia", DbType="Int")]
+		public System.Nullable<int> Gia
+		{
+			get
+			{
+				return this._Gia;
+			}
+			set
+			{
+				if ((this._Gia != value))
+				{
+					this.OnGiaChanging(value);
+					this.SendPropertyChanging();
+					this._Gia = value;
+					this.SendPropertyChanged("Gia");
+					this.OnGiaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayTao", DbType="Date NOT NULL")]
+		public System.DateTime NgayTao
+		{
+			get
+			{
+				return this._NgayTao;
+			}
+			set
+			{
+				if ((this._NgayTao != value))
+				{
+					this.OnNgayTaoChanging(value);
+					this.SendPropertyChanging();
+					this._NgayTao = value;
+					this.SendPropertyChanged("NgayTao");
+					this.OnNgayTaoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GiaDV_DichVu", Storage="_DichVus", ThisKey="GiaDV1", OtherKey="Gia")]
+		public EntitySet<DichVu> DichVus
+		{
+			get
+			{
+				return this._DichVus;
+			}
+			set
+			{
+				this._DichVus.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_DichVus(DichVu entity)
+		{
+			this.SendPropertyChanging();
+			entity.GiaDV = this;
+		}
+		
+		private void detach_DichVus(DichVu entity)
+		{
+			this.SendPropertyChanging();
+			entity.GiaDV = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GiaThue")]
 	public partial class GiaThue : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1430,9 +1603,7 @@ namespace DAL
 		
 		private System.Nullable<int> _Gia;
 		
-		private System.Nullable<System.DateTime> _NgayCapNhat;
-		
-		private EntitySet<DichVu> _DichVus;
+		private System.DateTime _NgayCapNhat;
 		
 		private EntitySet<MatBang> _MatBangs;
 		
@@ -1446,13 +1617,12 @@ namespace DAL
     partial void OnTenGiaThueChanged();
     partial void OnGiaChanging(System.Nullable<int> value);
     partial void OnGiaChanged();
-    partial void OnNgayCapNhatChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgayCapNhatChanging(System.DateTime value);
     partial void OnNgayCapNhatChanged();
     #endregion
 		
 		public GiaThue()
 		{
-			this._DichVus = new EntitySet<DichVu>(new Action<DichVu>(this.attach_DichVus), new Action<DichVu>(this.detach_DichVus));
 			this._MatBangs = new EntitySet<MatBang>(new Action<MatBang>(this.attach_MatBangs), new Action<MatBang>(this.detach_MatBangs));
 			OnCreated();
 		}
@@ -1517,8 +1687,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayCapNhat", DbType="DateTime")]
-		public System.Nullable<System.DateTime> NgayCapNhat
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayCapNhat", DbType="DateTime NOT NULL")]
+		public System.DateTime NgayCapNhat
 		{
 			get
 			{
@@ -1534,19 +1704,6 @@ namespace DAL
 					this.SendPropertyChanged("NgayCapNhat");
 					this.OnNgayCapNhatChanged();
 				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GiaThue_DichVu", Storage="_DichVus", ThisKey="MaGiaThue", OtherKey="Gia")]
-		public EntitySet<DichVu> DichVus
-		{
-			get
-			{
-				return this._DichVus;
-			}
-			set
-			{
-				this._DichVus.Assign(value);
 			}
 		}
 		
@@ -1581,18 +1738,6 @@ namespace DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_DichVus(DichVu entity)
-		{
-			this.SendPropertyChanging();
-			entity.GiaThue = this;
-		}
-		
-		private void detach_DichVus(DichVu entity)
-		{
-			this.SendPropertyChanging();
-			entity.GiaThue = null;
 		}
 		
 		private void attach_MatBangs(MatBang entity)

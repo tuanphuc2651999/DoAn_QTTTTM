@@ -123,6 +123,12 @@
   <data name="MAIL_BODY" xml:space="preserve">
     <value>AEON Thông báo</value>
   </data>
+  <data name="MAIL_BODY_MATKHAUMOI" xml:space="preserve">
+    <value>Xin chào {_Tên_},&lt;br /&gt;&lt;br /&gt;Bên dưới là tài khoản và mật khẩu của bạn.&lt;br /&gt;&lt;br /&gt;-	Email: {_Email_}&lt;br /&gt;-	Tài khoản: {_Tài khoản_}&lt;br /&gt;-	Mật khẩu: {_Mật khẩu_}&lt;br /&gt;&lt;br /&gt;Mọi thắc mắc xin vui lòng liên hệ bộ phận quản trị của công ty để được giúp đỡ.&lt;br /&gt;&lt;br /&gt;Cám ơn.</value>
+  </data>
+  <data name="MAIL_BODY_TAIKHOANKHACHHANG" xml:space="preserve">
+    <value>Xin chào {_Tên_},&lt;br /&gt;&lt;br /&gt;Bên dưới là tài khoản và mật khẩu của bạn.&lt;br /&gt;Hãy tải ứng dụng AEON để sử dụng nhé!&lt;br /&gt;&lt;br /&gt;-	Email: {_Email_}&lt;br /&gt;-	Tài khoản: {_Tài khoản_}&lt;br /&gt;-	Mật khẩu: {_Mật khẩu_}&lt;br /&gt;&lt;br /&gt;Mọi thắc mắc xin vui lòng liên hệ bộ phận quản trị của công ty để được giúp đỡ.&lt;br /&gt;&lt;br /&gt;Cám ơn.</value>
+  </data>
   <data name="MAIL_CC" xml:space="preserve">
     <value />
   </data>
@@ -160,6 +166,9 @@
   </data>
   <data name="MAIL_SUBJECT" xml:space="preserve">
     <value>AEON Thông báo</value>
+  </data>
+  <data name="MAIL_SUBJECT_TAIKHOANMOI" xml:space="preserve">
+    <value>Bên dưới là thông tin tài khoản của bạn</value>
   </data>
   <data name="MAIL_TO" xml:space="preserve">
     <value>tuanphuc.biz4@gmail.com</value>

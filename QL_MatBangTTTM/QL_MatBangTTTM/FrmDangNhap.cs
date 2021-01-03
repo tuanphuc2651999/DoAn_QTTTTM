@@ -50,7 +50,9 @@ namespace QL_MatBangTTTM
             } 
             if(ttTaiKhoan.TinhTrang==1)
             {
-                MessageBox.Show("Vào From đăng nhập");
+                FrmMain frm = new FrmMain(txtTenDangNhap.Text);
+                frm.Show();
+                this.Hide();
             }
             if(ttTaiKhoan.TinhTrang == 0)
             {

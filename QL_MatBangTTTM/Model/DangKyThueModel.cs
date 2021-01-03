@@ -73,4 +73,19 @@ namespace Model
             }
         }
     }    
+
+    public class LichHenModel
+    {
+        public string MaLichHen { get; set; }
+        public string NgayHen { get; set; }
+        public string GioBatDau { get; set; }
+        public string GioKetThuc { get; set; }
+        public string DiaChi { get; set; }
+        public string NoiDung { get; set; }
+
+        public string TinhTrang { get; set; }
+        public string MaNhanVien { get; set; }
+        public string MaDK { get; set; }
+        public string MaKH { get; set; }
+    }
 }

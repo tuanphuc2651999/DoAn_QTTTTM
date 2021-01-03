@@ -121,6 +121,7 @@
             this.repositoryItemMatBang = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMaMatBang = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colViTri = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTrangThaiMatBang = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -207,6 +208,7 @@
             this.btnSua.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSua.ImageOptions.SvgImage")));
             this.btnSua.Name = "btnSua";
             this.btnSua.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnSua.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // btnLuu
             // 
@@ -905,6 +907,7 @@
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMaMatBang,
+            this.colViTri,
             this.colTrangThaiMatBang});
             this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridView1.Name = "gridView1";
@@ -919,13 +922,21 @@
             this.colMaMatBang.Visible = true;
             this.colMaMatBang.VisibleIndex = 0;
             // 
+            // colViTri
+            // 
+            this.colViTri.Caption = "Vị trí";
+            this.colViTri.FieldName = "ViTri";
+            this.colViTri.Name = "colViTri";
+            this.colViTri.Visible = true;
+            this.colViTri.VisibleIndex = 1;
+            // 
             // colTrangThaiMatBang
             // 
             this.colTrangThaiMatBang.Caption = "Trạng thái";
             this.colTrangThaiMatBang.FieldName = "TinhTrangAsString";
             this.colTrangThaiMatBang.Name = "colTrangThaiMatBang";
             this.colTrangThaiMatBang.Visible = true;
-            this.colTrangThaiMatBang.VisibleIndex = 1;
+            this.colTrangThaiMatBang.VisibleIndex = 2;
             // 
             // repositoryItemComboBox1
             // 
@@ -1055,5 +1066,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTrangThaiMatBang;
         private DevExpress.XtraEditors.DateEdit txtLichHen;
         private DevExpress.XtraEditors.DateEdit txtNgayHetHan;
+        private DevExpress.XtraGrid.Columns.GridColumn colViTri;
     }
 }

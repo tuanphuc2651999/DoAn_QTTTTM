@@ -33,10 +33,11 @@ namespace QL_MatBangTTTM
             txtNgayLap.EditValue = DateTime.Now;
             DateTime ngayHetHanDong = DateTime.Today.AddDays(3);
             DateTime NgayHetHieuLuc = DateTime.Today.AddDays(15);
-            txtNgayHetHanDong.EditValue = ngayHetHanDong;
+            txtNgayDong.EditValue = (DateTime.Now).ToString("dd/MM/yyyy");
             txtNgayHetHieuLuc.EditValue = NgayHetHieuLuc;
-            txtTienCoc.Text = String.Format("{0:0,0 vnđ}", thueMB.TinhTienCoc(txtMatBang.Text));
-            cboTrangThai.SelectedIndex = 1;
+            //txtTienCoc.Text = String.Format("{0:0,0 vnđ}", thueMB.TinhTienCoc(txtMatBang.Text));\
+            txtTienCoc.Text = String.Format("{0:0,0 vnđ}", 5000000);
+            txtTrangThai.Text="Đã đóng";
         }
         public string MaHoaDon()
         {
@@ -75,7 +76,6 @@ namespace QL_MatBangTTTM
                 trangThai = 1;
             }
             hd.SoTien = (int)thueMB.TinhTienCoc(txtMatBang.Text);
-            hd.NgayHetHanDong = (DateTime)txtNgayHetHanDong.EditValue;
             hd.NgayHetHan = (DateTime)txtNgayHetHieuLuc.EditValue;
             hd.TrangThai = trangThai;
             hd.MaDK = maDK;
@@ -92,7 +92,7 @@ namespace QL_MatBangTTTM
 
         private void txtNgayDong_EditValueChanged(object sender, EventArgs e)
         {
-            if(!string.IsNullOrEmpty(txtNgayDong.Text))
+           /* if(!string.IsNullOrEmpty(txtNgayDong.Text))
             {
                 DateTime ngaydong = (DateTime)txtNgayDong.EditValue;
                 TimeSpan ktNgay = ngaydong - DateTime.Now;
@@ -111,7 +111,7 @@ namespace QL_MatBangTTTM
                 {
                     cboTrangThai.SelectedIndex = 1;
                 }
-            }    
+            }    */
             
         }
     }

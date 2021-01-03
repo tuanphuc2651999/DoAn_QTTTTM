@@ -17,7 +17,7 @@ namespace QL_MatBangTTTM
     public partial class FrmTaiKhoanNV : DevExpress.XtraEditors.XtraForm
     {
         BLL_NhanVien nhanVien = new BLL_NhanVien();
-        public FrmTaiKhoanNV()
+        public FrmTaiKhoanNV(string maNV)
         {
             InitializeComponent();
             GridLocalizer.Active = new MyGridLocalizer();

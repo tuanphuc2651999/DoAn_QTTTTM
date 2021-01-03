@@ -14,9 +14,11 @@ namespace QL_MatBangTTTM
 {
     public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public FrmMain()
+        string maNVDN;
+        public FrmMain( string maNV)
         {
-            InitializeComponent();         
+            InitializeComponent();
+            maNVDN = maNV;
         }
         private bool CheckExitsForm(string name)
         {
@@ -85,52 +87,52 @@ namespace QL_MatBangTTTM
 
         private void btnNhanVien_ItemClick(object sender, ItemClickEventArgs e)
         {
-            loadFrm(new FrmNhanVien());
+            loadFrm(new FrmNhanVien(maNVDN));
         }
 
         private void btnKhachHang_ItemClick(object sender, ItemClickEventArgs e)
         {
-            loadFrm(new FrmKhachHang());
+            loadFrm(new FrmKhachHang(maNVDN));
         }
 
         private void btnLichHen_ItemClick(object sender, ItemClickEventArgs e)
         {
-            loadFrm(new FrmLichHen());
+            loadFrm(new FrmLichHen(maNVDN));
         }
 
         private void btnDangKyThue_ItemClick(object sender, ItemClickEventArgs e)
         {
-            loadFrm(new FrmDangKy());
+            loadFrm(new FrmDangKy(maNVDN));
         }
 
         private void btnThueMatBang_ItemClick(object sender, ItemClickEventArgs e)
         {
-            loadFrm(new FrmThueMatBang());
+            loadFrm(new FrmThueMatBang(maNVDN));
         }
 
         private void btnTraMatBang_ItemClick(object sender, ItemClickEventArgs e)
         {
-            loadFrm(new FrmTraMatBang());
+            loadFrm(new FrmTraMatBang(maNVDN));
         }
 
         private void btnXyLyViPham_ItemClick(object sender, ItemClickEventArgs e)
         {
-            loadFrm(new FrmXuLyViPham());
+            loadFrm(new FrmXuLyViPham(maNVDN));
         }
 
         private void btnHoaDonDV_ItemClick(object sender, ItemClickEventArgs e)
         {
-            loadFrm(new FrmHoaDonDichVu());
+            loadFrm(new FrmHoaDonDichVu(maNVDN));
         }
 
         private void btnHoaDonTienThue_ItemClick(object sender, ItemClickEventArgs e)
         {
-            loadFrm(new FrmHoaDonTienThue());
+            loadFrm(new FrmHoaDonTienThue(maNVDN));
         }
 
         private void btnTaiKhoanNhanVien_ItemClick(object sender, ItemClickEventArgs e)
         {
-            loadFrm(new FrmTaiKhoanNV());
+            loadFrm(new FrmTaiKhoanNV(maNVDN));
         }
 
         private void btnTaiKhoanKhachHang_ItemClick(object sender, ItemClickEventArgs e)

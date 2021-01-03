@@ -44,7 +44,11 @@ namespace Liz.DoAn
         }
         public static void SaveFile(string pathFile, string nameFile, PictureEdit image)
         {
-            string destFile = Path.Combine(FileUtils.FolderUploads, nameFile);
+            string destFile = Path.Combine(FileUtils.FolderUploads, nameFile);   
+            if(File.Exists(destFile))
+            {
+                File.Delete(destFile);
+            }    
             image.Image.Save(destFile, GetImageFormat(pathFile));
         }
         public static ImageFormat GetImageFormat(string sourceFile)
@@ -90,7 +94,42 @@ namespace Liz.DoAn
 
         public static void WriteContentToFile(IDocument doc, String path)
         {
+/*
+            String fileName = doc.Name;
+            String file = Path.Combine(path, fileName);
+            try
+            {
+                FileStream fs = new FileStream(file, FileMode.CreateNew);
+                BinaryWriter bw = new BinaryWriter(fs);
+                Stream s = doc.AccessContentStream(0);
+                byte[] data = new byte[s.Length];
+                s.Read(data, 0, data.Length);
+                s.Close();
+                bw.Write(data);
+                bw.Close();
+                fs.Close();
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine(e.StackTrace);
+            }*/
+        }
+        public static Image StringToImage(string pathHinh)
+        {
+            try
+            {
+                FileStream stream = File.OpenRead(pathHinh);
+                byte[] fileBytes = new byte[stream.Length];
+                stream.Read(fileBytes, 0, fileBytes.Length);
+                stream.Close();
+                Image img = (Bitmap)((new ImageConverter()).ConvertFrom(fileBytes));
+                return img;
+            }
+            catch (Exception ex)
+            {
 
+                throw;
+            }
            
         }
     }

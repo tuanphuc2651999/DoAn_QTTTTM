@@ -13,7 +13,7 @@ namespace QL_MatBangTTTM
 {
     public partial class FrmTraMatBang : DevExpress.XtraEditors.XtraForm
     {
-        public FrmTraMatBang()
+        public FrmTraMatBang(string maNV)
         {
             InitializeComponent();
         }

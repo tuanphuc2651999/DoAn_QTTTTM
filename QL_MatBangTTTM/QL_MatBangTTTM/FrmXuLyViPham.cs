@@ -13,7 +13,7 @@ namespace QL_MatBangTTTM
 {
     public partial class FrmXuLyViPham : DevExpress.XtraEditors.XtraForm
     {
-        public FrmXuLyViPham()
+        public FrmXuLyViPham(string maNV)
         {
             InitializeComponent();
         }

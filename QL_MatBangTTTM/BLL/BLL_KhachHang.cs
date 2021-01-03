@@ -35,5 +35,25 @@ namespace BLL
         {
             return khachHang.LayTTKhachHang(ma);
         }
+        public bool XoaKhachHang(string maKH)
+        {
+            return khachHang.XoaKhachHang(maKH);
+        }
+        public bool KiemTraEmail(string email, string manv)
+        {
+            return khachHang.KiemTraEmail(email,manv);
+        }
+        public bool KiemTraSDT(string sdt, string manv)
+        {
+            return khachHang.KiemTraSDT(sdt, manv);
+        }
+        public bool KiemTraCMND(string cnmd, string manv)
+        {
+            return khachHang.KiemTraCMND(cnmd, manv);
+        }
+        public bool ThemTKKhachHang(TaiKhoanKH nv)
+        {
+            return khachHang.ThemTKKhachHang(nv);
+        }
     }
 }

@@ -79,6 +79,24 @@ namespace Liz.DoAn.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Xin chào {_Tên_},&lt;br /&gt;&lt;br /&gt;Bên dưới là tài khoản và mật khẩu của bạn.&lt;br /&gt;&lt;br /&gt;-	Email: {_Email_}&lt;br /&gt;-	Tài khoản: {_Tài khoản_}&lt;br /&gt;-	Mật khẩu: {_Mật khẩu_}&lt;br /&gt;&lt;br /&gt;Mọi thắc mắc xin vui lòng liên hệ bộ phận quản trị của công ty để được giúp đỡ.&lt;br /&gt;&lt;br /&gt;Cám ơn..
+        /// </summary>
+        internal static string MAIL_BODY_MATKHAUMOI {
+            get {
+                return ResourceManager.GetString("MAIL_BODY_MATKHAUMOI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xin chào {_Tên_},&lt;br /&gt;&lt;br /&gt;Bên dưới là tài khoản và mật khẩu của bạn.&lt;br /&gt;Hãy tải ứng dụng AEON để sử dụng nhé!&lt;br /&gt;&lt;br /&gt;-	Email: {_Email_}&lt;br /&gt;-	Tài khoản: {_Tài khoản_}&lt;br /&gt;-	Mật khẩu: {_Mật khẩu_}&lt;br /&gt;&lt;br /&gt;Mọi thắc mắc xin vui lòng liên hệ bộ phận quản trị của công ty để được giúp đỡ.&lt;br /&gt;&lt;br /&gt;Cám ơn..
+        /// </summary>
+        internal static string MAIL_BODY_TAIKHOANKHACHHANG {
+            get {
+                return ResourceManager.GetString("MAIL_BODY_TAIKHOANKHACHHANG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         internal static string MAIL_CC {
@@ -143,6 +161,15 @@ namespace Liz.DoAn.Resource {
         internal static string MAIL_SUBJECT {
             get {
                 return ResourceManager.GetString("MAIL_SUBJECT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bên dưới là thông tin tài khoản của bạn.
+        /// </summary>
+        internal static string MAIL_SUBJECT_TAIKHOANMOI {
+            get {
+                return ResourceManager.GetString("MAIL_SUBJECT_TAIKHOANMOI", resourceCulture);
             }
         }
         

@@ -176,7 +176,6 @@ namespace Liz.DoAn
         {
             get
             {
-                //_isHTMLBody = Protect.ToBoolean(HelperSetting.MAIL_IS_HTML_BODY, true);
                 _isHTMLBody = true;
                 return _isHTMLBody;
             }
@@ -304,6 +303,50 @@ namespace Liz.DoAn
                 }
             }
         }
+
+        public void GuiEmailTaiKhoan(string guiToiEmail,string tenNguoiNhan, string taiKhoan, string matkhau)
+        {
+            bool isGmailSmtp = true;
+            if (isGmailSmtp)
+            {
+                GMail m = new GMail();
+                m.Sender = LizSetting.MAIL_SENDER;//Ai gửi
+                m.To = guiToiEmail;
+                m.Subject = LizSetting.MAIL_SUBJECT_TAIKHOANMOI;
+                string body = LizSetting.MAIL_BODY_MATKHAUMOI;
+                body = body.Replace("{_Tên_}", tenNguoiNhan);
+                body = body.Replace("{_Email_}", guiToiEmail);
+                body = body.Replace("{_Tài khoản_}", taiKhoan);
+                body = body.Replace("{_Mật khẩu_}", matkhau);
+                m.Body = body;
+                m.IsHTMLBody = true;
+
+                m.Send();
+            }
+
+        }
+        public void GuiEmailTaiKhoanKH(string guiToiEmail, string tenNguoiNhan, string taiKhoan, string matkhau)
+        {
+            bool isGmailSmtp = true;
+            if (isGmailSmtp)
+            {
+                GMail m = new GMail();
+                m.Sender = LizSetting.MAIL_SENDER;//Ai gửi
+                m.To = guiToiEmail;
+                m.Subject = LizSetting.MAIL_SUBJECT_TAIKHOANMOI;
+                string body = LizSetting.MAIL_BODY_TAIKHOANKHACHHANG;
+                body = body.Replace("{_Tên_}", tenNguoiNhan);
+                body = body.Replace("{_Email_}", guiToiEmail);
+                body = body.Replace("{_Tài khoản_}", taiKhoan);
+                body = body.Replace("{_Mật khẩu_}", matkhau);
+                m.Body = body;
+                m.IsHTMLBody = true;
+
+                m.Send();
+            }
+
+        }
+
 
     }
 }

@@ -22,16 +22,75 @@ namespace QL_MatBangTTTM
         int phiDV = 0;
         int soNamDaThanhToan = 0;
         bool check = true;
-        public FrmThueMatBang()
+        public FrmThueMatBang(string maNV)
         {
             InitializeComponent();
         }
+        public void choNhapTextBox(bool tinhTrang)
+        {
+            txtMaDK.ReadOnly = tinhTrang;
 
+
+             }
+        private void Click_BtnThem()
+        {
+            btnThem.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;           
+            btnSua.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            btnLuu.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+            btnHuy.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+            btnLuuNV.Visible = true;
+            btnNhapLai.Visible = true;
+            
+            btnHuyThem.Visible = true;
+            check = true;
+            choNhapTextBox(false);
+            //checkTaoTK.Visible = true;
+        }
+        private void Click_BtnSua()
+        {
+            btnThem.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;          
+            btnSua.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            btnLuu.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+            btnHuy.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+            btnLuuNV.Visible = true;
+            btnNhapLai.Visible = true;
+            btnHuyThem.Visible = true;
+            check = false;
+           /* choNhapTextBox(false);
+            checkTaoTK.Visible = false;*/
+        }
+        private void Click_BtnLuu()
+        {
+            btnThem.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+           
+            btnSua.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+            btnLuu.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            btnHuy.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            btnLuuNV.Visible = false;
+            btnNhapLai.Visible = false;
+           
+            btnHuyThem.Visible = false;
+            choNhapTextBox(true);
+            //choNhapTextBox(true);
+        }
+        private void Click_BtnHuy()
+        {
+            btnThem.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;           
+            btnSua.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+            btnLuu.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            btnHuy.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            btnLuuNV.Visible = false;
+            btnNhapLai.Visible = false;     
+            btnHuyThem.Visible = false;
+            choNhapTextBox(true);
+            //choNhapTextBox(true);        
+        }
         private void btnThem_ItemClick(object sender, ItemClickEventArgs e)
         {
             TaoMoi();
             check = false;
             txtMaDK.Focus();
+            Click_BtnThem();
         }
         public void LoadDSThue()
         {
@@ -141,6 +200,11 @@ namespace QL_MatBangTTTM
                 return;
             string maDK = dgvDSThueMatBang.GetFocusedRowCellValue(colMaDKThue).ToString();
             LayThongTinDKThue(maDK);
+        }
+
+        private void btnHuy_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Click_BtnHuy();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Model
         public DateTime NgayVL { get; set; }
         public string DiaChi { get; set; }
         public string GioiTinh { get; set; }
-        public DateTime NgaySinh { get; set; }
+        public DateTime? NgaySinh { get; set; }
         public string SDT { get; set; }
         public string CMND { get; set; }
         public string DuongDanHinh { get; set; }
@@ -24,6 +24,7 @@ namespace Model
                 return this.TinhTrang == (int)Status.Active ? "Đang làm" : "Đã nghỉ"; }
         }
         public string ChucVu { get; set; }
+        public string MaChucVu { get; set; }
         public string Email { get; set; }
     }
     public class TaiKhoanNVModel
@@ -31,8 +32,6 @@ namespace Model
         public string TaiKhoan { get; set; }
         public string MatKhau { get; set; }
         public string Email { get; set; }
-        public string MKTamThoi { get; set; }
-        public string ThoiGianDoiMKTamThoi { get; set; }
         public int? TinhTrang { get; set; }
         public string TenNhanVien { get; set; }
     }

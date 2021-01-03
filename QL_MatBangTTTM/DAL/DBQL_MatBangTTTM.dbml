@@ -49,7 +49,16 @@
       <Column Name="Gia" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="DonViTinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="DichVu_CT_DichVu" Member="CT_DichVus" ThisKey="MaDichVu" OtherKey="MaDichVu" Type="CT_DichVu" />
-      <Association Name="GiaThue_DichVu" Member="GiaThue" ThisKey="Gia" OtherKey="MaGiaThue" Type="GiaThue" IsForeignKey="true" />
+      <Association Name="GiaDV_DichVu" Member="GiaDV" ThisKey="Gia" OtherKey="GiaDV1" Type="GiaDV" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GiaDV" Member="GiaDVs">
+    <Type Name="GiaDV">
+      <Column Name="GiaDV" Member="GiaDV1" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenDichVu" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Gia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="GiaDV_DichVu" Member="DichVus" ThisKey="GiaDV1" OtherKey="Gia" Type="DichVu" />
     </Type>
   </Table>
   <Table Name="dbo.GiaThue" Member="GiaThues">
@@ -57,8 +66,7 @@
       <Column Name="MaGiaThue" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TenGiaThue" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Gia" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="GiaThue_DichVu" Member="DichVus" ThisKey="MaGiaThue" OtherKey="Gia" Type="DichVu" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Association Name="GiaThue_MatBang" Member="MatBangs" ThisKey="MaGiaThue" OtherKey="Gia" Type="MatBang" />
     </Type>
   </Table>
