@@ -18,25 +18,32 @@ namespace QL_MatBangTTTM
     public partial class FrmTaoLichHen : DevExpress.XtraEditors.XtraForm
     {
         BLL_ThueMatBang thueMB = new BLL_ThueMatBang();
-        string maHD= "AEON_HHDC0003";
-        string maNV = "AEON_NV0001";
+        string maHD;
+        string maNV;
+        string maDK;
         string maLichHen;
-        public FrmTaoLichHen()
+        public FrmTaoLichHen(string maNV, string maHD, string maDK)
         {
             InitializeComponent();
             txtGioBatDau.EditValue = DateTime.Parse("7:00 AM");
             txtMaLichHen.Text = thueMB.LayMaLichHenTuSinh();
-            DateTime NgayHen;
-            DateTime ngayHienTai = DateTime.Now;
-            NgayHen = ngayHienTai.AddDays(1);
-            txtNgayHen.EditValue = NgayHen;
+            txtNgayHen.Focus();
             txtDiaChi.EditValue = QL_MatBang.DIACHI;
             txtNoiDung.EditValue= QL_MatBang.NOIDUNG;
             txtMaNV.EditValue = maNV;
+            this.maHD = maHD;
+            this.maNV = maNV;
+            this.maDK = maDK;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            if(txtNgayHen.EditValue==null)
+            {
+                MessageBox.Show("Chưa chọn ngày hẹn");
+                txtNgayHen.Focus();
+                return;
+            }    
             string gioDB = ((DateTime)txtGioBatDau.EditValue).ToString("HH:mm:ss");
             string gioKT = ((DateTime)txtGioKetThuc.EditValue).ToString("HH:mm:ss");
             string ngayHen = ((DateTime)txtNgayHen.EditValue).ToString("dd/MM/yyyy");
@@ -48,6 +55,7 @@ namespace QL_MatBangTTTM
             lh.DiaChi = txtDiaChi.Text;
             lh.NoiDung = txtNoiDung.Text;
             lh.MaNhanVien = txtMaNV.Text;
+            lh.MaDK = maDK;
             lh.TinhTrang = 1;
 
             if (!thueMB.KiemTraLichHen(lh))
@@ -94,7 +102,7 @@ namespace QL_MatBangTTTM
                 }
                 if (ktNgayMax.Days < 0)
                 {
-                    MessageBox.Show("Ngày hẹn phải nhỏ hơn thời hạn hết hiệu lực tiền cọc");
+                    MessageBox.Show("Ngày hẹn phải nhỏ hơn thời hạn hết hiệu lực tiền cọc ngày:"+ ngayHetHanString);
                     txtNgayHen.EditValue = (DateTime)DateTime.Now.AddDays(1);
                     txtNgayHen.Focus();
                     return;
@@ -104,7 +112,7 @@ namespace QL_MatBangTTTM
         }
         private DateTime LayNgayToiThieu(string maHD)
         {
-            var hd = thueMB.HoaDon(maHD);
+            var hd = thueMB.HoaDonGiuCho(maHD);
             return (DateTime)hd.NgayHetHan;
         }
 

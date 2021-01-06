@@ -29,6 +29,7 @@ namespace QL_MatBangTTTM
         List<string> listHD;
         List<string> listLH;
         int trangThai = -1;
+        string maNVDN;
         public FrmDangKy(string maNV)
         {
             InitializeComponent();
@@ -38,6 +39,7 @@ namespace QL_MatBangTTTM
             listViTriThem = new List<int>();
             listHD = new List<string>();
             listLH = new List<string>();
+            maNVDN = maNV;
         }
         public void loadDSMBChuaThue()
         {
@@ -77,18 +79,23 @@ namespace QL_MatBangTTTM
             dgvDSDKThue.SetRowCellValue(e.RowHandle, colNgayLap, DateTime.Now);
             dgvDSDKThue.SetRowCellValue(e.RowHandle, colThoiHanThue, 1);
             dgvDSDKThue.SetRowCellValue(e.RowHandle, colNgayMoCua, ngayMoCuaToiThieu);
-            dgvDSDKThue.SetRowCellValue(e.RowHandle, colTinhTrang, 321123);
+            //dgvDSDKThue.SetRowCellValue(e.RowHandle, colTinhTrang, 321123);
         }
 
         private void repositoryItemButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
+            if(dgvDSDKThue.GetFocusedRowCellDisplayText(colTinhTrang).ToString().Equals("Đã xử lý"))
+            {
+                MessageBox.Show("Phiếu đăng ký thuê này đã xử lý không thể tạo lịch hẹn");
+                return;
+            }    
             string maLH = dgvDSDKThue.GetFocusedRowCellDisplayText(colLichHen).ToString();
             string maHD = dgvDSDKThue.GetFocusedRowCellDisplayText(colHoaDon).ToString();
             int trangthai = -1;
-            var hoaDon = thueMB.HoaDon(maHD);
+            var hoaDon = thueMB.HoaDonGiuCho(maHD);
             if(hoaDon==null)
             {
-                MessageBox.Show("Khách hàng chưa có hóa đơn thanh toán");
+                MessageBox.Show("Khách hàng chưa có hoá đơn giữ chỗ");
                 return;
             }    
             else
@@ -108,16 +115,22 @@ namespace QL_MatBangTTTM
             }
             else
             {
-                FrmTaoLichHen taoLichHen = new FrmTaoLichHen();
+                FrmTaoLichHen taoLichHen = new FrmTaoLichHen(maNVDN, maHD, txtMaDK.Text);
                 taoLichHen.ShowDialog();
                 dgvDSDKThue.SetRowCellValue(dgvDSDKThue.FocusedRowHandle, colLichHen, taoLichHen.MaLichHen());
-                listLH.Add(taoLichHen.MaLichHen());
+                if(!string.IsNullOrEmpty(taoLichHen.MaLichHen()))
+                    listLH.Add(taoLichHen.MaLichHen());
             }
 
         }
 
         private void repositoryItemHoaDon_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
+            if (dgvDSDKThue.GetFocusedRowCellDisplayText(colTinhTrang).ToString().Equals("Đã xử lý"))
+            {
+                MessageBox.Show("Phiếu đăng ký thuê này đã xử lý không thể tạo hóa đơn");
+                return;
+            }
             string maHD = dgvDSDKThue.GetRowCellDisplayText(dgvDSDKThue.FocusedRowHandle, colHoaDon).ToString();
             string maMB = dgvDSDKThue.GetRowCellDisplayText(dgvDSDKThue.FocusedRowHandle, colMaMatBang).ToString();
             string maDK = dgvDSDKThue.GetRowCellDisplayText(dgvDSDKThue.FocusedRowHandle, colMaDK).ToString();
@@ -289,7 +302,7 @@ namespace QL_MatBangTTTM
                 {
                     foreach (string item in listHD)
                     {
-                        if (!thueMB.XoaHoaDon(item))
+                        if (!thueMB.XoaHoaDonGiuCho(item))
                         {
                             MessageBox.Show("Lỗi khi xóa hóa đơn");
                         }
@@ -319,7 +332,7 @@ namespace QL_MatBangTTTM
         {
             if (!string.IsNullOrEmpty(mahd))
             {
-                var tienCoc = thueMB.HoaDon(mahd);
+                var tienCoc = thueMB.HoaDonGiuCho(mahd);
                 string tien = String.Format("{0:0,0 vnđ}", tienCoc.SoTien);
                 txtTienCoc.Text = tien;
                 txtNgayHetHan.EditValue = tienCoc.NgayHetHan;
@@ -434,7 +447,31 @@ namespace QL_MatBangTTTM
                 }
             }*/
 
-        }  
+        }
+
+        private void FrmDangKy_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (listHD.Count > 0)
+            {
+                foreach (string item in listHD)
+                {
+                    if (!thueMB.XoaHoaDonGiuCho(item))
+                    {
+                        MessageBox.Show("Lỗi khi xóa hóa đơn");
+                    }
+                }
+            }
+            if (listLH.Count > 0)
+            {
+                foreach (string item in listLH)
+                {
+                    if (!thueMB.XoaLichHen(item))
+                    {
+                        MessageBox.Show("Lỗi khi xóa lịch hẹn");
+                    }
+                }
+            }
+        }
     }
 }
     

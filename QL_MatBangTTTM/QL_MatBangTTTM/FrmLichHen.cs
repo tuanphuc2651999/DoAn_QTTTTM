@@ -158,7 +158,7 @@ namespace QL_MatBangTTTM
         }
         private DateTime LayNgayToiThieu(string maHD)
         {
-            var hd = thueMB.HoaDon(maHD);
+            var hd = thueMB.HoaDonGiuCho(maHD);
             return (DateTime)hd.NgayHetHan;
         }
         private void txtNgayHen_EditValueChanged(object sender, EventArgs e)

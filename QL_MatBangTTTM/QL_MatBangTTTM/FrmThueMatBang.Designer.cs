@@ -29,12 +29,33 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmThueMatBang));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
             this.btnSua = new DevExpress.XtraBars.BarButtonItem();
             this.btnLuu = new DevExpress.XtraBars.BarButtonItem();
+            this.btnHuy = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -76,9 +97,7 @@
             this.txtNgayLap = new DevExpress.XtraEditors.DateEdit();
             this.txtNgayThue = new DevExpress.XtraEditors.DateEdit();
             this.txtNgayHetHan = new DevExpress.XtraEditors.DateEdit();
-            this.txtThoiHanThue = new DevExpress.XtraEditors.TextEdit();
             this.txtNamDaThanhToan = new DevExpress.XtraEditors.TextEdit();
-            this.txtTienCoc = new DevExpress.XtraEditors.TextEdit();
             this.textEdit9 = new DevExpress.XtraEditors.TextEdit();
             this.label13 = new System.Windows.Forms.Label();
             this.txtEmail = new DevExpress.XtraEditors.TextEdit();
@@ -92,11 +111,14 @@
             this.txtNhanVien = new DevExpress.XtraEditors.TextEdit();
             this.label14 = new System.Windows.Forms.Label();
             this.txtMaMB = new DevExpress.XtraEditors.TextEdit();
-            this.btnHuy = new DevExpress.XtraBars.BarButtonItem();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btnHuyThem = new DevExpress.XtraEditors.SimpleButton();
             this.btnNhapLai = new DevExpress.XtraEditors.SimpleButton();
             this.btnLuuNV = new DevExpress.XtraEditors.SimpleButton();
+            this.txtTienCoc = new DevExpress.XtraEditors.ButtonEdit();
+            this.txtThoiHanThue = new DevExpress.XtraEditors.SpinEdit();
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -115,9 +137,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayThue.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayHetHan.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayHetHan.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtThoiHanThue.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNamDaThanhToan.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTienCoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).BeginInit();
@@ -126,6 +146,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNhanVien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaMB.Properties)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTienCoc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtThoiHanThue.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -178,6 +202,7 @@
             this.btnSua.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSua.ImageOptions.SvgImage")));
             this.btnSua.Name = "btnSua";
             this.btnSua.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnSua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSua_ItemClick);
             // 
             // btnLuu
             // 
@@ -187,6 +212,15 @@
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnLuu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLuu_ItemClick);
+            // 
+            // btnHuy
+            // 
+            this.btnHuy.Caption = "Hủy";
+            this.btnHuy.Id = 3;
+            this.btnHuy.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnHuy.ImageOptions.SvgImage")));
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnHuy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHuy_ItemClick);
             // 
             // bar3
             // 
@@ -301,8 +335,10 @@
             this.colNgayLap});
             this.dgvDSThueMatBang.GridControl = this.gcThueMatBang;
             this.dgvDSThueMatBang.Name = "dgvDSThueMatBang";
+            this.dgvDSThueMatBang.OptionsBehavior.Editable = false;
             this.dgvDSThueMatBang.OptionsBehavior.ReadOnly = true;
             this.dgvDSThueMatBang.OptionsFind.AlwaysVisible = true;
+            this.dgvDSThueMatBang.OptionsScrollAnnotations.ShowSelectedRows = DevExpress.Utils.DefaultBoolean.False;
             this.dgvDSThueMatBang.OptionsView.ShowGroupPanel = false;
             this.dgvDSThueMatBang.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.dgvDSThueMatBang_FocusedRowChanged);
             // 
@@ -318,9 +354,12 @@
             // colNgayThue
             // 
             this.colNgayThue.Caption = "Ngày thuê";
+            this.colNgayThue.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colNgayThue.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.colNgayThue.FieldName = "NgayThue";
             this.colNgayThue.MinWidth = 10;
             this.colNgayThue.Name = "colNgayThue";
+            this.colNgayThue.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowOnlyInEditor;
             this.colNgayThue.Visible = true;
             this.colNgayThue.VisibleIndex = 1;
             this.colNgayThue.Width = 101;
@@ -328,6 +367,8 @@
             // colDichVu
             // 
             this.colDichVu.Caption = "Phí dịch vụ";
+            this.colDichVu.DisplayFormat.FormatString = "{0:0,0 vnđ/năm}";
+            this.colDichVu.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.colDichVu.FieldName = "PhiDichVuMotNam";
             this.colDichVu.Name = "colDichVu";
             this.colDichVu.Visible = true;
@@ -355,7 +396,9 @@
             // colTienCoc
             // 
             this.colTienCoc.Caption = "Tiền cọc";
-            this.colTienCoc.FieldName = "TienCoc";
+            this.colTienCoc.DisplayFormat.FormatString = "{0:0,0 vnđ}";
+            this.colTienCoc.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.colTienCoc.FieldName = "HoaDonTienCoc1.SoTien";
             this.colTienCoc.Name = "colTienCoc";
             this.colTienCoc.Visible = true;
             this.colTienCoc.VisibleIndex = 6;
@@ -364,8 +407,11 @@
             // colNgayTra
             // 
             this.colNgayTra.Caption = "Ngày trả";
+            this.colNgayTra.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colNgayTra.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.colNgayTra.FieldName = "NgayHetHanHopDong";
             this.colNgayTra.Name = "colNgayTra";
+            this.colNgayTra.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowOnlyInEditor;
             this.colNgayTra.Visible = true;
             this.colNgayTra.VisibleIndex = 3;
             this.colNgayTra.Width = 96;
@@ -400,9 +446,13 @@
             // colNgayLap
             // 
             this.colNgayLap.Caption = "Ngày lập";
+            this.colNgayLap.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colNgayLap.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.colNgayLap.FieldName = "NgayLap";
             this.colNgayLap.MinWidth = 21;
             this.colNgayLap.Name = "colNgayLap";
+            this.colNgayLap.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowOnlyInEditor;
+            this.colNgayLap.UnboundType = DevExpress.Data.UnboundColumnType.DateTime;
             this.colNgayLap.Visible = true;
             this.colNgayLap.VisibleIndex = 2;
             this.colNgayLap.Width = 100;
@@ -463,9 +513,7 @@
             this.tableLayoutPanel4.Controls.Add(this.txtNgayLap, 3, 3);
             this.tableLayoutPanel4.Controls.Add(this.txtNgayThue, 3, 4);
             this.tableLayoutPanel4.Controls.Add(this.txtNgayHetHan, 3, 5);
-            this.tableLayoutPanel4.Controls.Add(this.txtThoiHanThue, 7, 1);
             this.tableLayoutPanel4.Controls.Add(this.txtNamDaThanhToan, 7, 2);
-            this.tableLayoutPanel4.Controls.Add(this.txtTienCoc, 7, 3);
             this.tableLayoutPanel4.Controls.Add(this.textEdit9, 11, 5);
             this.tableLayoutPanel4.Controls.Add(this.label13, 9, 4);
             this.tableLayoutPanel4.Controls.Add(this.txtEmail, 11, 4);
@@ -480,6 +528,8 @@
             this.tableLayoutPanel4.Controls.Add(this.label14, 9, 1);
             this.tableLayoutPanel4.Controls.Add(this.txtMaMB, 11, 1);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 11, 6);
+            this.tableLayoutPanel4.Controls.Add(this.txtTienCoc, 7, 3);
+            this.tableLayoutPanel4.Controls.Add(this.txtThoiHanThue, 7, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -649,7 +699,7 @@
             this.txtNgayLap.MenuManager = this.barManager1;
             this.txtNgayLap.Name = "txtNgayLap";
             this.txtNgayLap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.txtNgayLap.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtNgayLap.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Fluent;
@@ -671,13 +721,14 @@
             this.txtNgayThue.MenuManager = this.barManager1;
             this.txtNgayThue.Name = "txtNgayThue";
             this.txtNgayThue.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.txtNgayThue.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtNgayThue.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.txtNgayThue.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txtNgayThue.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.txtNgayThue.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtNgayThue.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.txtNgayThue.Properties.ReadOnly = true;
             this.txtNgayThue.Size = new System.Drawing.Size(190, 20);
             this.txtNgayThue.TabIndex = 46;
@@ -690,26 +741,17 @@
             this.txtNgayHetHan.MenuManager = this.barManager1;
             this.txtNgayHetHan.Name = "txtNgayHetHan";
             this.txtNgayHetHan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.txtNgayHetHan.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtNgayHetHan.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.txtNgayHetHan.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txtNgayHetHan.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.txtNgayHetHan.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtNgayHetHan.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.txtNgayHetHan.Properties.ReadOnly = true;
             this.txtNgayHetHan.Size = new System.Drawing.Size(190, 20);
             this.txtNgayHetHan.TabIndex = 47;
-            // 
-            // txtThoiHanThue
-            // 
-            this.txtThoiHanThue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtThoiHanThue.Location = new System.Drawing.Point(511, 10);
-            this.txtThoiHanThue.MenuManager = this.barManager1;
-            this.txtThoiHanThue.Name = "txtThoiHanThue";
-            this.txtThoiHanThue.Properties.ReadOnly = true;
-            this.txtThoiHanThue.Size = new System.Drawing.Size(190, 20);
-            this.txtThoiHanThue.TabIndex = 48;
             // 
             // txtNamDaThanhToan
             // 
@@ -720,16 +762,6 @@
             this.txtNamDaThanhToan.Properties.ReadOnly = true;
             this.txtNamDaThanhToan.Size = new System.Drawing.Size(190, 20);
             this.txtNamDaThanhToan.TabIndex = 49;
-            // 
-            // txtTienCoc
-            // 
-            this.txtTienCoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTienCoc.Location = new System.Drawing.Point(511, 66);
-            this.txtTienCoc.MenuManager = this.barManager1;
-            this.txtTienCoc.Name = "txtTienCoc";
-            this.txtTienCoc.Properties.ReadOnly = true;
-            this.txtTienCoc.Size = new System.Drawing.Size(190, 20);
-            this.txtTienCoc.TabIndex = 50;
             // 
             // textEdit9
             // 
@@ -861,15 +893,6 @@
             this.txtMaMB.Size = new System.Drawing.Size(190, 20);
             this.txtMaMB.TabIndex = 62;
             // 
-            // btnHuy
-            // 
-            this.btnHuy.Caption = "Hủy";
-            this.btnHuy.Id = 3;
-            this.btnHuy.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnHuy.ImageOptions.SvgImage")));
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.btnHuy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHuy_ItemClick);
-            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 5;
@@ -886,7 +909,7 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(190, 27);
             this.tableLayoutPanel5.TabIndex = 63;
             // 
@@ -897,10 +920,11 @@
             this.btnHuyThem.Location = new System.Drawing.Point(3, 2);
             this.btnHuyThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHuyThem.Name = "btnHuyThem";
-            this.btnHuyThem.Size = new System.Drawing.Size(51, 23);
+            this.btnHuyThem.Size = new System.Drawing.Size(51, 22);
             this.btnHuyThem.TabIndex = 2;
             this.btnHuyThem.Text = "Hủy";
             this.btnHuyThem.Visible = false;
+            this.btnHuyThem.Click += new System.EventHandler(this.btnHuyThem_Click);
             // 
             // btnNhapLai
             // 
@@ -909,10 +933,11 @@
             this.btnNhapLai.Location = new System.Drawing.Point(69, 2);
             this.btnNhapLai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNhapLai.Name = "btnNhapLai";
-            this.btnNhapLai.Size = new System.Drawing.Size(51, 23);
+            this.btnNhapLai.Size = new System.Drawing.Size(51, 22);
             this.btnNhapLai.TabIndex = 1;
             this.btnNhapLai.Text = "Nhập lại";
             this.btnNhapLai.Visible = false;
+            this.btnNhapLai.Click += new System.EventHandler(this.btnNhapLai_Click);
             // 
             // btnLuuNV
             // 
@@ -921,10 +946,65 @@
             this.btnLuuNV.Location = new System.Drawing.Point(135, 2);
             this.btnLuuNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLuuNV.Name = "btnLuuNV";
-            this.btnLuuNV.Size = new System.Drawing.Size(52, 23);
+            this.btnLuuNV.Size = new System.Drawing.Size(52, 22);
             this.btnLuuNV.TabIndex = 0;
             this.btnLuuNV.Text = "Lưu";
             this.btnLuuNV.Visible = false;
+            this.btnLuuNV.Click += new System.EventHandler(this.btnLuuNV_Click);
+            // 
+            // txtTienCoc
+            // 
+            this.txtTienCoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTienCoc.EditValue = "";
+            this.txtTienCoc.Location = new System.Drawing.Point(511, 66);
+            this.txtTienCoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTienCoc.MenuManager = this.barManager1;
+            this.txtTienCoc.Name = "txtTienCoc";
+            this.txtTienCoc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, true, false, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.txtTienCoc.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.txtTienCoc.Properties.ReadOnly = true;
+            this.txtTienCoc.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.txtTienCoc.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_Properties_ButtonClick);
+            this.txtTienCoc.Size = new System.Drawing.Size(190, 20);
+            this.txtTienCoc.TabIndex = 64;
+            this.txtTienCoc.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtTienCoc_ButtonClick);
+            this.txtTienCoc.EditValueChanged += new System.EventHandler(this.txtTienCoc_EditValueChanged);
+            // 
+            // txtThoiHanThue
+            // 
+            this.txtThoiHanThue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtThoiHanThue.EditValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtThoiHanThue.Location = new System.Drawing.Point(511, 10);
+            this.txtThoiHanThue.MenuManager = this.barManager1;
+            this.txtThoiHanThue.Name = "txtThoiHanThue";
+            this.txtThoiHanThue.Properties.AppearanceReadOnly.Options.UseTextOptions = true;
+            this.txtThoiHanThue.Properties.AppearanceReadOnly.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.txtThoiHanThue.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtThoiHanThue.Properties.Mask.EditMask = "n0";
+            this.txtThoiHanThue.Properties.MaxValue = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.txtThoiHanThue.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtThoiHanThue.Properties.ReadOnly = true;
+            this.txtThoiHanThue.Size = new System.Drawing.Size(190, 20);
+            this.txtThoiHanThue.TabIndex = 65;
+            this.txtThoiHanThue.EditValueChanged += new System.EventHandler(this.txtThoiHanThue_EditValueChanged);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmThueMatBang
             // 
@@ -958,9 +1038,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayThue.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayHetHan.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayHetHan.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtThoiHanThue.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNamDaThanhToan.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTienCoc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).EndInit();
@@ -969,6 +1047,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNhanVien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaMB.Properties)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtTienCoc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtThoiHanThue.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1024,13 +1106,11 @@
         private DevExpress.XtraEditors.DateEdit txtNgayThue;
         private DevExpress.XtraEditors.DateEdit txtNgayHetHan;
         private DevExpress.XtraEditors.TextEdit txtNamDaThanhToan;
-        private DevExpress.XtraEditors.TextEdit txtTienCoc;
         private DevExpress.XtraEditors.TextEdit txtPhiDV;
         private DevExpress.XtraEditors.TextEdit txtMaKhachHang;
         private DevExpress.XtraEditors.TextEdit txtSDT;
         private DevExpress.XtraEditors.TextEdit txtEmail;
         private DevExpress.XtraEditors.TextEdit textEdit9;
-        private DevExpress.XtraEditors.TextEdit txtThoiHanThue;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private DevExpress.XtraEditors.TextEdit txtNhanVien;
@@ -1043,5 +1123,9 @@
         private DevExpress.XtraEditors.SimpleButton btnHuyThem;
         private DevExpress.XtraEditors.SimpleButton btnNhapLai;
         private DevExpress.XtraEditors.SimpleButton btnLuuNV;
+        private DevExpress.XtraEditors.ButtonEdit txtTienCoc;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
+        private DevExpress.XtraEditors.SpinEdit txtThoiHanThue;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

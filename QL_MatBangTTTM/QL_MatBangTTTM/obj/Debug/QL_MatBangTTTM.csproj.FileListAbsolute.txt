@@ -248,3 +248,4 @@ C:\Users\Phuc\Desktop\DoAn_MonHoc\QL_MatBangTTTM\QL_MatBangTTTM\obj\Debug\QL_Mat
 C:\Users\Phuc\Desktop\DoAn_MonHoc\QL_MatBangTTTM\QL_MatBangTTTM\obj\Debug\QL_MatBangTTTM.Resource.QL_MatBang.resources
 C:\Users\Phuc\Desktop\DoAn_MonHoc\QL_MatBangTTTM\QL_MatBangTTTM\obj\Debug\QL_MatBangTTTM.FrmDangNhap.resources
 C:\Users\Phuc\Desktop\DoAn_MonHoc\QL_MatBangTTTM\QL_MatBangTTTM\obj\Debug\QL_MatBangTTTM.FrmThongKeDanhThu.resources
+C:\Users\Phuc\Desktop\DoAn_MonHoc\QL_MatBangTTTM\QL_MatBangTTTM\obj\Debug\QL_MatBangTTTM.FrmTaoHoaDonTienCoc.resources

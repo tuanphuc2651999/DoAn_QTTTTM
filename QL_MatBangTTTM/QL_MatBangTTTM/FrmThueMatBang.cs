@@ -10,28 +10,33 @@ using System.Windows.Forms;
 using DevExpress.XtraBars;
 using BLL;
 using DAL;
+using DevExpress.XtraEditors.Controls;
+using Liz.DoAn;
 
 namespace QL_MatBangTTTM
 {
     public partial class FrmThueMatBang : DevExpress.XtraEditors.XtraForm
     {
         BLL_ThueMatBang thueMB = new BLL_ThueMatBang();
-        BLL_KhachHang khachHang = new BLL_KhachHang();
+        BLL_KhachHang khachHang = new BLL_KhachHang();       
         int tienCoc = 0;
         int thoiHanThue = 0;
         int phiDV = 0;
+        string maHD;
         int soNamDaThanhToan = 0;
         bool check = true;
+        string maNV;
         public FrmThueMatBang(string maNV)
         {
             InitializeComponent();
+            this.maNV = maNV;
         }
         public void choNhapTextBox(bool tinhTrang)
         {
             txtMaDK.ReadOnly = tinhTrang;
 
 
-             }
+        }
         private void Click_BtnThem()
         {
             btnThem.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;           
@@ -39,8 +44,7 @@ namespace QL_MatBangTTTM
             btnLuu.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
             btnHuy.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
             btnLuuNV.Visible = true;
-            btnNhapLai.Visible = true;
-            
+            btnNhapLai.Visible = true;          
             btnHuyThem.Visible = true;
             check = true;
             choNhapTextBox(false);
@@ -56,8 +60,8 @@ namespace QL_MatBangTTTM
             btnNhapLai.Visible = true;
             btnHuyThem.Visible = true;
             check = false;
-           /* choNhapTextBox(false);
-            checkTaoTK.Visible = false;*/
+            txtThoiHanThue.ReadOnly = false;
+            txtThoiHanThue.Focus();
         }
         private void Click_BtnLuu()
         {
@@ -68,7 +72,7 @@ namespace QL_MatBangTTTM
             btnHuy.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             btnLuuNV.Visible = false;
             btnNhapLai.Visible = false;
-           
+            check = true;
             btnHuyThem.Visible = false;
             choNhapTextBox(true);
             //choNhapTextBox(true);
@@ -88,9 +92,11 @@ namespace QL_MatBangTTTM
         private void btnThem_ItemClick(object sender, ItemClickEventArgs e)
         {
             TaoMoi();
+            LoadDSDKThue();
             check = false;
             txtMaDK.Focus();
             Click_BtnThem();
+
         }
         public void LoadDSThue()
         {
@@ -100,9 +106,22 @@ namespace QL_MatBangTTTM
         {
             txtMaDK.Properties.DataSource = thueMB.LayDSMatBangChuaThue();
         }
+        public void LoadCboDangKyAll()
+        {
+            txtMaDK.Properties.DataSource = thueMB.LayDSDangKy();
+        }
         public void LoadTienThue()
         {
            // txtLoaiDichVu.Properties.DataSource = thueMB.DSGia();
+        }
+
+        private void AnHienButtonAddHoaDon(bool trangThai)
+        {
+            DevExpress.XtraEditors.Controls.EditorButtonCollection buttons = txtTienCoc.Properties.Buttons;
+            foreach (EditorButton item in buttons)
+            {
+                item.Visible = trangThai;
+            }
         }
         private void TaoMoi()
         {
@@ -128,22 +147,34 @@ namespace QL_MatBangTTTM
             {
                 var mb = thueMB.LayThongTinMB(tt.MatBang);
                 var kh = khachHang.LayTTKhachHang(tt.MaKhachHang);
-                var hoaDon = thueMB.HoaDon(tt.MaHD);
+                var hoaDon = thueMB.HoaDon(ma);
                 DateTime ngayHetHan;
                 DateTime ngayThue = (DateTime)tt.NgayMoCua;
                 ngayHetHan = ngayThue.AddYears(1);
                 txtNgayThue.EditValue = tt.NgayMoCua;
                 txtNgayHetHan.EditValue = ngayHetHan;
-                txtThoiHanThue.EditValue =tt.ThoiHanThue+" năm";
-                txtTienCoc.EditValue = String.Format("{0:0,0 vnđ}", hoaDon.SoTien);
+                txtThoiHanThue.EditValue =tt.ThoiHanThue;
+                if(hoaDon!=null)
+                {
+                    txtTienCoc.EditValue = String.Format("{0:0,0 vnđ}", hoaDon.SoTien);
+                    maHD = hoaDon.MaHD;
+                }   
+                else
+                {
+                    txtTienCoc.EditValue = "";
+                    AnHienButtonAddHoaDon(true);
+                }
                 txtPhiDV.EditValue= String.Format("{0:0,0 vnđ/năm}", thueMB.PhiDichVu((int)mb.DienTich));
                 txtMaMB.EditValue = tt.MatBang;
                 txtMaKhachHang.EditValue = kh.MaKH;
                 txtSDT.EditValue = kh.SDT;
                 txtEmail.EditValue = kh.Email;
-                tienCoc = (int)hoaDon.SoTien;
+                //tienCoc = (int)hoaDon.SoTien;
                 thoiHanThue = (int)tt.ThoiHanThue;
                 phiDV = (int)thueMB.PhiDichVu((int)mb.DienTich);
+                if (string.IsNullOrEmpty(dgvDSThueMatBang.GetFocusedRowCellDisplayText(colDaThanhToan).ToString()))
+                    txtNamDaThanhToan.EditValue = 0;
+                else
                 txtNamDaThanhToan.EditValue = dgvDSThueMatBang.GetFocusedRowCellDisplayText(colDaThanhToan).ToString();
             }               
         }
@@ -151,8 +182,8 @@ namespace QL_MatBangTTTM
         {
             LoadDSThue();
             LoadDSDKThue();
-            TaoMoi();
             LoadTienThue();
+            LoadCboDangKyAll();
         }
         private void FrmThueMatBang_Load(object sender, EventArgs e)
         {
@@ -166,10 +197,19 @@ namespace QL_MatBangTTTM
 
         private void btnLuu_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if(string.IsNullOrEmpty(txtMaDK.EditValue.ToString()))
+            errorProvider1.Clear();
+            if (string.IsNullOrEmpty(txtMaDK.EditValue.ToString()))
             {
                 MessageBox.Show("Bạn chưa chọn mã thuê mặt bằng");
+                errorProvider1.SetError(txtMaDK, "Bạn chưa chọn mã thuê mặt bằng");
                 txtMaDK.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(txtTienCoc.EditValue.ToString()))
+            {
+                MessageBox.Show("Chưa có hóa đơn tiền cọc hãy tạo hóa đơn tiền cọc rồi mới có thể thuê mặt bằng");
+                errorProvider1.SetError(txtTienCoc,"Hãy tạo hóa đơn");
+                txtTienCoc.Focus();
                 return;
             }    
             ThueMatBang themMB = new ThueMatBang();
@@ -177,21 +217,39 @@ namespace QL_MatBangTTTM
             themMB.NgayLap = (DateTime)txtNgayLap.EditValue;
             themMB.NgayThue = (DateTime)txtNgayThue.EditValue;
             themMB.NgayHetHanHopDong = (DateTime)txtNgayHetHan.EditValue;
-            themMB.ThoiHanThue = thoiHanThue;
+            themMB.ThoiHanThue = int.Parse(txtThoiHanThue.EditValue.ToString());
             themMB.SoNamDaThanhToan = int.Parse(txtNamDaThanhToan.EditValue.ToString());
-            themMB.TienCoc = tienCoc;
-            themMB.PhiDichVuMotNam = phiDV.ToString();
+            themMB.HoaDonTienCoc = maHD;
+            themMB.PhiDichVuMotNam = phiDV;
             themMB.TinhTrang = 1;
-            themMB.MaNhanVien = null;
+            themMB.MaNhanVien = maNV;
             themMB.MaDKThue = txtMaDK.EditValue.ToString();
-            
-            if(!thueMB.ThemThueMatBang(themMB))
+            if(check)
             {
-                MessageBox.Show("Không thể thêm thuê mặt bằng");
-                return;
+                if (!thueMB.ThemThueMatBang(themMB))
+                {
+                    MessageBox.Show("Không thể thêm thuê mặt bằng");
+                    return;
+                }
+                MessageBox.Show("Thêm thành công");
+                Click_BtnLuu();
+                LoadLaiDS();
             }
-            MessageBox.Show("Thêm thành công");
-            LoadLaiDS();
+            else
+            {
+                if (!thueMB.SuaThueMatBang(themMB))
+                {
+                    MessageBox.Show("Sửa mặt bằng lỗi");
+                    return;
+                }
+                MessageBox.Show("Sửa thành công");
+                Click_BtnLuu();
+                txtThoiHanThue.ReadOnly = true;
+                dgvDSThueMatBang.Focus();
+                LoadLaiDS();
+            }    
+            
+           
         }
 
         private void dgvDSThueMatBang_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -199,12 +257,72 @@ namespace QL_MatBangTTTM
             if (check == false)
                 return;
             string maDK = dgvDSThueMatBang.GetFocusedRowCellValue(colMaDKThue).ToString();
-            LayThongTinDKThue(maDK);
+            txtMaDK.EditValue = maDK;
+            txtMaThue.EditValue= dgvDSThueMatBang.GetFocusedRowCellValue(colMaThue).ToString();
+            txtThoiHanThue.EditValue= dgvDSThueMatBang.GetFocusedRowCellValue(colThoiHanThue).ToString();
+            txtNhanVien.EditValue = dgvDSThueMatBang.GetFocusedRowCellValue(colNhanVien).ToString();          
+            txtNgayLap.EditValue=Commons.ConvertStringToDate(dgvDSThueMatBang.GetFocusedRowCellDisplayText(colNgayLap));
         }
 
         private void btnHuy_ItemClick(object sender, ItemClickEventArgs e)
         {
             Click_BtnHuy();
+            LoadCboDangKyAll();
+            dgvDSThueMatBang_FocusedRowChanged(null, null);
+            dgvDSThueMatBang.Focus();
+        }
+
+        private void buttonEdit1_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+           // MessageBox.Show("OK");
+        }
+
+        private void txtTienCoc_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            FrmTaoHoaDonTienCoc hoaDonTT = new FrmTaoHoaDonTienCoc(txtMaDK.EditValue.ToString(), txtMaMB.EditValue.ToString()) ;
+            hoaDonTT.ShowDialog();
+            string maDK = txtMaDK.EditValue.ToString();
+            LayThongTinDKThue(maDK);
+        }
+
+        private void txtTienCoc_EditValueChanged(object sender, EventArgs e)
+        {
+            errorProvider1.Clear();
+        }
+
+        private void btnSua_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Click_BtnSua();
+        }
+
+        private void txtThoiHanThue_EditValueChanged(object sender, EventArgs e)
+        {
+            if (check)
+                return;
+            errorProvider1.Clear();
+            if (int.Parse(txtThoiHanThue.EditValue.ToString())< int.Parse(dgvDSThueMatBang.GetFocusedRowCellValue(colThoiHanThue).ToString()))
+            {
+                MessageBox.Show("Thời hạn thuê chỉnh sửa không thể bé hơn thời gian thuê lúc trước");
+                txtThoiHanThue.EditValue = int.Parse(dgvDSThueMatBang.GetFocusedRowCellValue(colThoiHanThue).ToString());
+                errorProvider1.SetError(txtThoiHanThue, "Hãy chọn lại thời hạn thuê");
+                txtThoiHanThue.Focus();
+                return;
+            }    
+        }
+
+        private void btnLuuNV_Click(object sender, EventArgs e)
+        {
+            btnLuu_ItemClick(null,null);
+        }
+
+        private void btnNhapLai_Click(object sender, EventArgs e)
+        {
+            TaoMoi();
+        }
+
+        private void btnHuyThem_Click(object sender, EventArgs e)
+        {
+            btnHuy_ItemClick(null,null);
         }
     }
 }

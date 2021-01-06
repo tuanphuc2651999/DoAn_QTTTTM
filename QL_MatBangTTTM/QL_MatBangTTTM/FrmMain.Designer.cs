@@ -114,7 +114,7 @@
             this.ribbonPage4,
             this.ribbonPage5});
             this.ribbon.QuickToolbarItemLinks.Add(this.skinDropDownButtonItem1);
-            this.ribbon.Size = new System.Drawing.Size(1390, 178);
+            this.ribbon.Size = new System.Drawing.Size(1390, 143);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // btnDangNhap
@@ -334,7 +334,7 @@
             // 
             this.btnBCChung.Caption = "Thông kê chung";
             this.btnBCChung.Id = 23;
-            this.btnBCChung.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem19.ImageOptions.SvgImage")));
+            this.btnBCChung.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnBCChung.ImageOptions.SvgImage")));
             this.btnBCChung.LargeWidth = 80;
             this.btnBCChung.Name = "btnBCChung";
             this.btnBCChung.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
@@ -344,7 +344,7 @@
             // 
             this.btnTCDoanhThu.Caption = "Thống kê doanh thu";
             this.btnTCDoanhThu.Id = 24;
-            this.btnTCDoanhThu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem20.ImageOptions.SvgImage")));
+            this.btnTCDoanhThu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTCDoanhThu.ImageOptions.SvgImage")));
             this.btnTCDoanhThu.LargeWidth = 80;
             this.btnTCDoanhThu.Name = "btnTCDoanhThu";
             this.btnTCDoanhThu.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
@@ -354,7 +354,7 @@
             // 
             this.btnThongKeViPham.Caption = "Thống kê vi phạm";
             this.btnThongKeViPham.Id = 25;
-            this.btnThongKeViPham.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem21.ImageOptions.SvgImage")));
+            this.btnThongKeViPham.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnThongKeViPham.ImageOptions.SvgImage")));
             this.btnThongKeViPham.LargeWidth = 80;
             this.btnThongKeViPham.Name = "btnThongKeViPham";
             this.btnThongKeViPham.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
@@ -364,7 +364,7 @@
             // 
             this.btnThongKeHopDong.Caption = "Thông kê hợp đồng";
             this.btnThongKeHopDong.Id = 26;
-            this.btnThongKeHopDong.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem22.ImageOptions.SvgImage")));
+            this.btnThongKeHopDong.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnThongKeHopDong.ImageOptions.SvgImage")));
             this.btnThongKeHopDong.LargeWidth = 80;
             this.btnThongKeHopDong.Name = "btnThongKeHopDong";
             this.btnThongKeHopDong.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
@@ -427,8 +427,8 @@
             // 
             this.ribbonPageGroup3.ItemLinks.Add(this.btnKhachHang);
             this.ribbonPageGroup3.ItemLinks.Add(this.btnNhanVien);
-            this.ribbonPageGroup3.ItemLinks.Add(this.btnLichHen);
             this.ribbonPageGroup3.ItemLinks.Add(this.btnDangKyThue);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnLichHen);
             this.ribbonPageGroup3.ItemLinks.Add(this.btnThueMatBang);
             this.ribbonPageGroup3.ItemLinks.Add(this.btnTraMatBang);
             this.ribbonPageGroup3.ItemLinks.Add(this.btnXyLyViPham);
@@ -467,11 +467,11 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 762);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 768);
             this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1390, 37);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1390, 31);
             this.ribbonStatusBar.Visible = false;
             // 
             // xtraTabbedMdiManager1
@@ -481,7 +481,7 @@
             // FrmMain
             // 
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1390, 799);
             this.Controls.Add(this.ribbonStatusBar);

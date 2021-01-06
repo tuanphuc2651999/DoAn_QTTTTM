@@ -129,5 +129,29 @@ namespace BLL
         {
             return dkThue.SuaLichHen(lh);
         }
+        public HoaDonGiuCho HoaDonGiuCho(string ma)
+        {
+            return dkThue.HoaDonGiuCho(ma);
+        }
+        public bool ThemHoaDonGiuCho(HoaDonGiuCho hd)
+        {
+            return dkThue.ThemHoaDonGiuCho(hd);
+        }
+        public string LayMaHDGiuCho()
+        {
+            return dkThue.LayMaHDGiuCho();
+        }
+        public bool XoaHoaDonGiuCho(string maHD)
+        {
+            return dkThue.XoaHoaDonGiuCho(maHD);
+        }
+        public List<HoaDonTienCoc> LayDSHoaDonTienCoc()
+        {           
+            return dkThue.LayDSHoaDonTienCoc();
+        }
+        public List<HoaDonGiuCho> LayDSHoaDonGiuCho()
+        {
+            return dkThue.LayDSHoaDonGiuCho();
+        }
     }
 }

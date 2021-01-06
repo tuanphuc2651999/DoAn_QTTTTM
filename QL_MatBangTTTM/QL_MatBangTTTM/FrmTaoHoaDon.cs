@@ -29,7 +29,7 @@ namespace QL_MatBangTTTM
 
         private void FrmTaoHoaDon_Load(object sender, EventArgs e)
         {
-            txtMaHoaDon.Text = thueMB.LayMaHoaDonTuSinh();
+            txtMaHoaDon.Text = thueMB.LayMaHDGiuCho();
             txtNgayLap.EditValue = DateTime.Now;
             DateTime ngayHetHanDong = DateTime.Today.AddDays(3);
             DateTime NgayHetHieuLuc = DateTime.Today.AddDays(15);
@@ -67,22 +67,23 @@ namespace QL_MatBangTTTM
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            HoaDonTienCoc hd = new HoaDonTienCoc();
-            hd.MaHD = txtMaHoaDon.Text;          
+            HoaDonGiuCho hd = new HoaDonGiuCho();
+            hd.MaHDGiuCho = txtMaHoaDon.Text;          
             hd.NgayLap = (DateTime)txtNgayLap.EditValue;
             if(txtNgayDong.EditValue!=null)
             {
-                hd.NgayDong = (DateTime)txtNgayDong.EditValue;
+                hd.NgayDong = Commons.ConvertStringToDate(txtNgayDong.EditValue.ToString());
                 trangThai = 1;
             }
-            hd.SoTien = (int)thueMB.TinhTienCoc(txtMatBang.Text);
+            /*hd.SoTien = (int)thueMB.TinhTienCoc(txtMatBang.Text);*/
+            hd.SoTien = 5000000;
             hd.NgayHetHan = (DateTime)txtNgayHetHieuLuc.EditValue;
             hd.TrangThai = trangThai;
             hd.MaDK = maDK;
-            if(thueMB.ThemHoaDon(hd))
+            if(thueMB.ThemHoaDonGiuCho(hd))
             {
                 MessageBox.Show("Thêm hóa đơn thành công");
-                maHD = hd.MaHD;
+                maHD = hd.MaHDGiuCho;
                 this.Close();
             }    
         }
