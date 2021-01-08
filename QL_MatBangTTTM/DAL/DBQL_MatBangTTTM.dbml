@@ -1,17 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QL_MatBangTTTM" Class="DBQL_MatBangTTTMDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-JT2VOVA;Initial Catalog=QL_MatBangTTTM;Integrated Security=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="QL_MatBangTTTMConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-IQ05A3C\SQLEXPRESS;Initial Catalog=QL_MatBangTTTM;Integrated Security=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="QL_MatBangTTTMConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ChucVu" Member="ChucVus">
     <Type Name="ChucVu">
       <Column Name="MaChucVu" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TenChucVu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="ChucVu_NhanVien" Member="NhanViens" ThisKey="MaChucVu" OtherKey="ChucVu" Type="NhanVien" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ViPham" Member="ViPhams">
-    <Type Name="ViPham">
-      <Column Name="MaViPham" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenViPham" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Association Name="ViPham_HoSoViPham" Member="HoSoViPhams" ThisKey="MaViPham" OtherKey="MaViPham" Type="HoSoViPham" />
     </Type>
   </Table>
   <Table Name="dbo.CT_DichVu" Member="CT_DichVus">
@@ -120,9 +113,9 @@
       <Column Name="MaViPham" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="MaThueMB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="MaNhanVien" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="ViPham_HoSoViPham" Member="ViPham" ThisKey="MaViPham" OtherKey="MaViPham" Type="ViPham" IsForeignKey="true" />
       <Association Name="NhanVien_HoSoViPham" Member="NhanVien" ThisKey="MaNhanVien" OtherKey="MaNhanVien" Type="NhanVien" IsForeignKey="true" />
       <Association Name="ThueMatBang_HoSoViPham" Member="ThueMatBang" ThisKey="MaThueMB" OtherKey="MaThueMB" Type="ThueMatBang" IsForeignKey="true" />
+      <Association Name="ViPham_HoSoViPham" Member="ViPham" ThisKey="MaViPham" OtherKey="MaViPham" Type="ViPham" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.KhachHang" Member="KhachHangs">
@@ -340,6 +333,13 @@
       <Column Name="ThueMB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="NhanVien_TraMatBang" Member="NhanVien" ThisKey="MaNhanVien" OtherKey="MaNhanVien" Type="NhanVien" IsForeignKey="true" />
       <Association Name="ThueMatBang_TraMatBang" Member="ThueMatBang" ThisKey="ThueMB" OtherKey="MaThueMB" Type="ThueMatBang" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ViPham" Member="ViPhams">
+    <Type Name="ViPham">
+      <Column Name="MaViPham" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenViPham" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="ViPham_HoSoViPham" Member="HoSoViPhams" ThisKey="MaViPham" OtherKey="MaViPham" Type="HoSoViPham" />
     </Type>
   </Table>
 </Database>

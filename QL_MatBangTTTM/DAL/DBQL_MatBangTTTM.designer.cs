@@ -33,9 +33,6 @@ namespace DAL
     partial void InsertChucVu(ChucVu instance);
     partial void UpdateChucVu(ChucVu instance);
     partial void DeleteChucVu(ChucVu instance);
-    partial void InsertViPham(ViPham instance);
-    partial void UpdateViPham(ViPham instance);
-    partial void DeleteViPham(ViPham instance);
     partial void InsertCT_DichVu(CT_DichVu instance);
     partial void UpdateCT_DichVu(CT_DichVu instance);
     partial void DeleteCT_DichVu(CT_DichVu instance);
@@ -117,10 +114,13 @@ namespace DAL
     partial void InsertTraMatBang(TraMatBang instance);
     partial void UpdateTraMatBang(TraMatBang instance);
     partial void DeleteTraMatBang(TraMatBang instance);
+    partial void InsertViPham(ViPham instance);
+    partial void UpdateViPham(ViPham instance);
+    partial void DeleteViPham(ViPham instance);
     #endregion
 		
 		public DBQL_MatBangTTTMDataContext() : 
-				base(global::DAL.Properties.Settings.Default.QL_MatBangTTTMConnectionString, mappingSource)
+				base(global::DAL.Properties.Settings.Default.QL_MatBangTTTMConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -154,14 +154,6 @@ namespace DAL
 			get
 			{
 				return this.GetTable<ChucVu>();
-			}
-		}
-		
-		public System.Data.Linq.Table<ViPham> ViPhams
-		{
-			get
-			{
-				return this.GetTable<ViPham>();
 			}
 		}
 		
@@ -380,6 +372,14 @@ namespace DAL
 				return this.GetTable<TraMatBang>();
 			}
 		}
+		
+		public System.Data.Linq.Table<ViPham> ViPhams
+		{
+			get
+			{
+				return this.GetTable<ViPham>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ChucVu")]
@@ -493,120 +493,6 @@ namespace DAL
 		{
 			this.SendPropertyChanging();
 			entity.ChucVu1 = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ViPham")]
-	public partial class ViPham : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MaViPham;
-		
-		private string _TenViPham;
-		
-		private EntitySet<HoSoViPham> _HoSoViPhams;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMaViPhamChanging(string value);
-    partial void OnMaViPhamChanged();
-    partial void OnTenViPhamChanging(string value);
-    partial void OnTenViPhamChanged();
-    #endregion
-		
-		public ViPham()
-		{
-			this._HoSoViPhams = new EntitySet<HoSoViPham>(new Action<HoSoViPham>(this.attach_HoSoViPhams), new Action<HoSoViPham>(this.detach_HoSoViPhams));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaViPham", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MaViPham
-		{
-			get
-			{
-				return this._MaViPham;
-			}
-			set
-			{
-				if ((this._MaViPham != value))
-				{
-					this.OnMaViPhamChanging(value);
-					this.SendPropertyChanging();
-					this._MaViPham = value;
-					this.SendPropertyChanged("MaViPham");
-					this.OnMaViPhamChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenViPham", DbType="NVarChar(100)")]
-		public string TenViPham
-		{
-			get
-			{
-				return this._TenViPham;
-			}
-			set
-			{
-				if ((this._TenViPham != value))
-				{
-					this.OnTenViPhamChanging(value);
-					this.SendPropertyChanging();
-					this._TenViPham = value;
-					this.SendPropertyChanged("TenViPham");
-					this.OnTenViPhamChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ViPham_HoSoViPham", Storage="_HoSoViPhams", ThisKey="MaViPham", OtherKey="MaViPham")]
-		public EntitySet<HoSoViPham> HoSoViPhams
-		{
-			get
-			{
-				return this._HoSoViPhams;
-			}
-			set
-			{
-				this._HoSoViPhams.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_HoSoViPhams(HoSoViPham entity)
-		{
-			this.SendPropertyChanging();
-			entity.ViPham = this;
-		}
-		
-		private void detach_HoSoViPhams(HoSoViPham entity)
-		{
-			this.SendPropertyChanging();
-			entity.ViPham = null;
 		}
 	}
 	
@@ -2614,11 +2500,11 @@ namespace DAL
 		
 		private string _MaNhanVien;
 		
-		private EntityRef<ViPham> _ViPham;
-		
 		private EntityRef<NhanVien> _NhanVien;
 		
 		private EntityRef<ThueMatBang> _ThueMatBang;
+		
+		private EntityRef<ViPham> _ViPham;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2646,9 +2532,9 @@ namespace DAL
 		
 		public HoSoViPham()
 		{
-			this._ViPham = default(EntityRef<ViPham>);
 			this._NhanVien = default(EntityRef<NhanVien>);
 			this._ThueMatBang = default(EntityRef<ThueMatBang>);
+			this._ViPham = default(EntityRef<ViPham>);
 			OnCreated();
 		}
 		
@@ -2844,40 +2730,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ViPham_HoSoViPham", Storage="_ViPham", ThisKey="MaViPham", OtherKey="MaViPham", IsForeignKey=true)]
-		public ViPham ViPham
-		{
-			get
-			{
-				return this._ViPham.Entity;
-			}
-			set
-			{
-				ViPham previousValue = this._ViPham.Entity;
-				if (((previousValue != value) 
-							|| (this._ViPham.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ViPham.Entity = null;
-						previousValue.HoSoViPhams.Remove(this);
-					}
-					this._ViPham.Entity = value;
-					if ((value != null))
-					{
-						value.HoSoViPhams.Add(this);
-						this._MaViPham = value.MaViPham;
-					}
-					else
-					{
-						this._MaViPham = default(string);
-					}
-					this.SendPropertyChanged("ViPham");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NhanVien_HoSoViPham", Storage="_NhanVien", ThisKey="MaNhanVien", OtherKey="MaNhanVien", IsForeignKey=true)]
 		public NhanVien NhanVien
 		{
@@ -2942,6 +2794,40 @@ namespace DAL
 						this._MaThueMB = default(string);
 					}
 					this.SendPropertyChanged("ThueMatBang");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ViPham_HoSoViPham", Storage="_ViPham", ThisKey="MaViPham", OtherKey="MaViPham", IsForeignKey=true)]
+		public ViPham ViPham
+		{
+			get
+			{
+				return this._ViPham.Entity;
+			}
+			set
+			{
+				ViPham previousValue = this._ViPham.Entity;
+				if (((previousValue != value) 
+							|| (this._ViPham.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ViPham.Entity = null;
+						previousValue.HoSoViPhams.Remove(this);
+					}
+					this._ViPham.Entity = value;
+					if ((value != null))
+					{
+						value.HoSoViPhams.Add(this);
+						this._MaViPham = value.MaViPham;
+					}
+					else
+					{
+						this._MaViPham = default(string);
+					}
+					this.SendPropertyChanged("ViPham");
 				}
 			}
 		}
@@ -7606,6 +7492,120 @@ namespace DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ViPham")]
+	public partial class ViPham : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MaViPham;
+		
+		private string _TenViPham;
+		
+		private EntitySet<HoSoViPham> _HoSoViPhams;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaViPhamChanging(string value);
+    partial void OnMaViPhamChanged();
+    partial void OnTenViPhamChanging(string value);
+    partial void OnTenViPhamChanged();
+    #endregion
+		
+		public ViPham()
+		{
+			this._HoSoViPhams = new EntitySet<HoSoViPham>(new Action<HoSoViPham>(this.attach_HoSoViPhams), new Action<HoSoViPham>(this.detach_HoSoViPhams));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaViPham", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MaViPham
+		{
+			get
+			{
+				return this._MaViPham;
+			}
+			set
+			{
+				if ((this._MaViPham != value))
+				{
+					this.OnMaViPhamChanging(value);
+					this.SendPropertyChanging();
+					this._MaViPham = value;
+					this.SendPropertyChanged("MaViPham");
+					this.OnMaViPhamChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenViPham", DbType="NVarChar(100)")]
+		public string TenViPham
+		{
+			get
+			{
+				return this._TenViPham;
+			}
+			set
+			{
+				if ((this._TenViPham != value))
+				{
+					this.OnTenViPhamChanging(value);
+					this.SendPropertyChanging();
+					this._TenViPham = value;
+					this.SendPropertyChanged("TenViPham");
+					this.OnTenViPhamChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ViPham_HoSoViPham", Storage="_HoSoViPhams", ThisKey="MaViPham", OtherKey="MaViPham")]
+		public EntitySet<HoSoViPham> HoSoViPhams
+		{
+			get
+			{
+				return this._HoSoViPhams;
+			}
+			set
+			{
+				this._HoSoViPhams.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_HoSoViPhams(HoSoViPham entity)
+		{
+			this.SendPropertyChanging();
+			entity.ViPham = this;
+		}
+		
+		private void detach_HoSoViPhams(HoSoViPham entity)
+		{
+			this.SendPropertyChanging();
+			entity.ViPham = null;
 		}
 	}
 }

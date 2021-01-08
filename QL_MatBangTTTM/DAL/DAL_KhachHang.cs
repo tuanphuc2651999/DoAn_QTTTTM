@@ -164,7 +164,66 @@ namespace DAL
                 taiKhoanKH.Email = nv.Email;
                 taiKhoanKH.MatKhau = nv.MatKhau;
                 taiKhoanKH.TinhTrang = nv.TinhTrang;
+                taiKhoanKH.MaKhachHang = nv.MaKhachHang;
                 db.TaiKhoanKHs.InsertOnSubmit(taiKhoanKH);
+                db.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
+        public List<KhachHangModel> layDSKhachHangKhongCoTaiKhoan()
+        {
+            var khachHang = from kh in db.KhachHangs
+                            where kh.TinhTrang == 1 &&
+                            !(from tkkh in db.TaiKhoanKHs select tkkh.MaKhachHang).Contains(kh.MaKH)
+                            select new KhachHangModel
+                            {
+                                MaKH = kh.MaKH,
+                                HoTenKH = kh.HoTenKH,
+                                CMND = kh.CMND,
+                                DiaChi = kh.DiaChi,
+                                GioiTinh = kh.GioiTinh,
+                                NgaySinh = (DateTime)kh.NgaySinh,
+                                SDT = kh.SDT,
+                                Email = kh.Email,
+                                DuongDanHinh = kh.DuongDanHinh,
+                                TinhTrang = (int)kh.TinhTrang,
+                            };
+            return khachHang.ToList();
+        }
+        public bool SuaTaiKhoanKhachHang(TaiKhoanKH taiKhoan)
+        {
+            try
+            {
+                TaiKhoanKH kh = db.TaiKhoanKHs.FirstOrDefault(t => t.TaiKhoan.Equals(taiKhoan.TaiKhoan));
+
+                kh.TaiKhoan = taiKhoan.TaiKhoan;
+                kh.MatKhau = taiKhoan.MatKhau;
+                kh.Email = taiKhoan.Email;
+                kh.TinhTrang = taiKhoan.TinhTrang;
+                kh.MaKhachHang = taiKhoan.MaKhachHang;
+
+                db.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
+        public bool XoaTaiKhoanKhachHang(TaiKhoanKH tk)
+        {
+            try
+            {
+                TaiKhoanKH tkkh = db.TaiKhoanKHs.Where(x => x.TaiKhoan.Equals(tk.TaiKhoan)).FirstOrDefault();
+                tkkh.TinhTrang = 0;
                 db.SubmitChanges();
                 return true;
             }

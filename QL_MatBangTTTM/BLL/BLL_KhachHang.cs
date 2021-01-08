@@ -15,6 +15,10 @@ namespace BLL
         {
             return khachHang.layDSKhachHang();
         }
+        public List<KhachHangModel> layDSKHKhongCoTaiKhoan()
+        {
+            return khachHang.layDSKhachHangKhongCoTaiKhoan();
+        }
         public bool suaKhachHang(KhachHangModel kh)
         {
             return khachHang.suaKhachHang(kh);
@@ -54,6 +58,14 @@ namespace BLL
         public bool ThemTKKhachHang(TaiKhoanKH nv)
         {
             return khachHang.ThemTKKhachHang(nv);
+        }
+        public bool SuaTaiKhoanKhachHang(TaiKhoanKH tk)
+        {
+            return khachHang.SuaTaiKhoanKhachHang(tk);
+        }
+        public bool XoaTaiKhoanKhachHang(TaiKhoanKH tk)
+        {
+            return khachHang.XoaTaiKhoanKhachHang(tk);
         }
     }
 }

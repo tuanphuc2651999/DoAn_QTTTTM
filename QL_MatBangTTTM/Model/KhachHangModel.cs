@@ -37,6 +37,20 @@ namespace Model
         public int? TinhTrang { get; set; }
         public string TenKhachHang { get; set; }
         public string MaKhachHang { get; set; }
-
+        public string TinhTrangAsString
+        {
+            get
+            {
+                // return this.TinhTrang == (int)StatusTaiKhoan.Active ? "Đang hoạt động" : "Ngưng hoạt động";
+                if (this.TinhTrang == (int)StatusTaiKhoan.Active)
+                    return "Đang hoạt động";
+                else if (this.TinhTrang == (int)StatusTaiKhoan.NewAccount)
+                    return "Tài khoản mới";
+                else
+                    return "Bị Khóa";
+            }
+        }
     }
+
 }
+
